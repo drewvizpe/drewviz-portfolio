@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- Contact form → WhatsApp (XSS-safe) ---
+  // --- Contact form → Email (mailto) ---
   const form = document.querySelector('.contact__form');
   if (form) {
     form.addEventListener('submit', (e) => {
@@ -252,9 +252,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = form.querySelector('[name="email"]')?.value || '';
       const service = form.querySelector('[name="service"]')?.value || '';
       const message = form.querySelector('[name="message"]')?.value || '';
-      const text = encodeURIComponent(`Hi! I'm ${name} (${email}).\n\nI'm interested in: ${service}\n\n${message}`);
-      const phone = '51970773849';
-      window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+      const subject = encodeURIComponent(`Project Inquiry: ${service}`);
+      const body = encodeURIComponent(`Hi! I'm ${name} (${email}).\n\nI'm interested in: ${service}\n\n${message}`);
+      window.location.href = `mailto:drew.viz.pe@gmail.com?subject=${subject}&body=${body}`;
     });
   }
 
