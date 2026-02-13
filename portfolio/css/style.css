@@ -283,6 +283,7 @@ button { font-family: var(--font); }
   justify-content: center;
   gap: 1rem;
   margin-top: 3.5rem;
+  flex-wrap: wrap;
 }
 
 /* ==========================================
@@ -687,15 +688,6 @@ button { font-family: var(--font); }
 .back-to-top:hover {
   border-color: var(--accent);
   transform: translateY(-3px);
-}
-
-/* ==========================================
-   ANIMATED ACCENT LINE (decoration)
-   ========================================== */
-.accent-line {
-  width: 100%; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0.3;
 }
 
 /* ==========================================

@@ -248,11 +248,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = encodeURIComponent(form.querySelector('[name="name"]')?.value || '');
-      const email = encodeURIComponent(form.querySelector('[name="email"]')?.value || '');
-      const service = encodeURIComponent(form.querySelector('[name="service"]')?.value || '');
-      const message = encodeURIComponent(form.querySelector('[name="message"]')?.value || '');
-      const text = `Hi! I'm ${name} (${email}).%0A%0AI'm interested in: ${service}%0A%0A${message}`;
+      const name = form.querySelector('[name="name"]')?.value || '';
+      const email = form.querySelector('[name="email"]')?.value || '';
+      const service = form.querySelector('[name="service"]')?.value || '';
+      const message = form.querySelector('[name="message"]')?.value || '';
+      const text = encodeURIComponent(`Hi! I'm ${name} (${email}).\n\nI'm interested in: ${service}\n\n${message}`);
       const phone = '51970773849';
       window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
     });
