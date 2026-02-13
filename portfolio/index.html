@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DREW.VIZ | Architectural Visualization Studio</title>
+  <meta name="description" content="High-end architectural visualization by Drew.Viz. Photorealistic renders, 360° panoramas, AI-enhanced imagery and cinematic animations for architecture studios worldwide. Based in Lima, Peru.">
+  <meta name="keywords" content="architectural visualization, 3D rendering, archviz, Corona Renderer, VRay, interior design, exterior render, 360 panorama, architectural animation, 3ds Max, AI rendering">
+  <meta name="author" content="Andrew Montejo — Drew.Viz">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DREW.VIZ | Architectural Visualization Studio">
+  <meta property="og:description" content="Photorealistic architectural renders, immersive 360° panoramas and cinematic animations. Available worldwide.">
+  <meta property="og:image" content="images/kaisergarten.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Pannellum 360 Viewer -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav">
+    <a href="#" class="nav__logo">DREW<span>.VIZ</span></a>
+    <ul class="nav__links">
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#creative">Process</a></li>
+      <li><a href="#pano360">360°</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav__hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- ========== HERO — Video Background ========== -->
+  <section class="hero" id="home">
+    <div class="hero__video-bg">
+      <video autoplay muted loop playsinline>
+        <source src="videos/dolly-in.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="particles" id="particles"></div>
+    <div class="hero__content">
+      <span class="hero__label">Architectural Visualization Studio</span>
+      <h1 class="hero__title">We bring <strong>architecture</strong> to life</h1>
+      <p class="hero__desc">
+        Photorealistic renders, immersive 360° experiences, cinematic animations
+        and AI-enhanced imagery for architects and developers worldwide.
+      </p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn btn--primary">Request a Quote</a>
+        <a href="#portfolio" class="btn btn--outline">View Work</a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO ========== -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label">Portfolio</span>
+        <h2 class="section__title">Selected <strong>Projects</strong></h2>
+        <p class="section__subtitle">A curated selection of architectural visualizations across residential, commercial, and hospitality projects.</p>
+      </div>
+
+      <div class="portfolio__filter reveal">
+        <button class="filter-btn active" data-filter="interior">Interior</button>
+        <button class="filter-btn" data-filter="exterior">Exterior</button>
+        <button class="filter-btn" data-filter="commercial">Commercial</button>
+        <button class="filter-btn" data-filter="creative">Creative</button>
+        <button class="filter-btn" data-filter="all">All</button>
+      </div>
+
+      <div class="gallery reveal">
+        <div class="gallery__item gallery__item--wide" data-category="exterior">
+          <img src="images/kaisergarten.jpg" alt="Kaisergarten Tower at Dusk" loading="lazy">
+          <div class="gallery__overlay"><h3>Kaisergarten Tower</h3><p>Luxury Residential Exterior</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/erika-kitchen.jpg" alt="Erika's Kitchen" loading="lazy">
+          <div class="gallery__overlay"><h3>Erika's Kitchen</h3><p>Natural Light Study</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="interior">
+          <img src="images/japandi-living.jpg" alt="Japandi Living Room" loading="lazy">
+          <div class="gallery__overlay"><h3>Japandi Living</h3><p>Warm Minimalism</p></div>
+        </div>
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/astete-lobby.jpg" alt="Astete Park Lobby" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Lobby</h3><p>Premium Common Areas</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/rustic-kitchen.jpg" alt="Rustic Kitchen" loading="lazy">
+          <div class="gallery__overlay"><h3>Rustic Kitchen</h3><p>Natural Materials</p></div>
+        </div>
+
+        <div class="gallery__item gallery__item--wide" data-category="interior">
+          <img src="images/tangleos-terraza.jpg" alt="Los Tangleos Terrace" loading="lazy">
+          <div class="gallery__overlay"><h3>Los Tangleos — Terrace</h3><p>Luxury Outdoor Living</p></div>
+        </div>
+        <div class="gallery__item" data-category="exterior">
+          <img src="images/astete-fachada.jpg" alt="Astete Park Facade" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park</h3><p>Residential Building</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="interior">
+          <img src="images/cocina-liblab.jpg" alt="LibLab Kitchen" loading="lazy">
+          <div class="gallery__overlay"><h3>LibLab Kitchen</h3><p>Modern Residential</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/sala-dulce.jpg" alt="Soft Light Living Room" loading="lazy">
+          <div class="gallery__overlay"><h3>Soft Light Living</h3><p>Minimalist Interior</p></div>
+        </div>
+        <div class="gallery__item" data-category="exterior">
+          <img src="images/tomas-marsano-night.jpg" alt="Tomas Marsano Night" loading="lazy">
+          <div class="gallery__overlay"><h3>Tomas Marsano</h3><p>Night View</p></div>
+        </div>
+
+        <div class="gallery__item gallery__item--wide" data-category="interior">
+          <img src="images/depto1-living.jpg" alt="Oceanview Apartment" loading="lazy">
+          <div class="gallery__overlay"><h3>Oceanview Apartment</h3><p>Modern Living</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/mueble-naranja.jpg" alt="Terracotta Living" loading="lazy">
+          <div class="gallery__overlay"><h3>Terracotta Living</h3><p>Warm Palette</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/restaurant-blue.jpg" alt="Blue Lounge Restaurant" loading="lazy">
+          <div class="gallery__overlay"><h3>Blue Lounge</h3><p>Restaurant Interior</p></div>
+        </div>
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/desayunador-stripes.jpg" alt="Striped Breakfast Room" loading="lazy">
+          <div class="gallery__overlay"><h3>Striped Elegance</h3><p>Hospitality Interior</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/tangleos-interior.jpg" alt="Los Tangleos Interior" loading="lazy">
+          <div class="gallery__overlay"><h3>Los Tangleos</h3><p>Industrial Modern</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="exterior">
+          <img src="images/chachapoyas-frontal.jpg" alt="Chachapoyas Building" loading="lazy">
+          <div class="gallery__overlay"><h3>Chachapoyas</h3><p>Residential Building</p></div>
+        </div>
+        <div class="gallery__item gallery__item--wide" data-category="exterior">
+          <img src="images/los-tangleos-fachada.jpg" alt="Los Tangleos Facade" loading="lazy">
+          <div class="gallery__overlay"><h3>Los Tangleos</h3><p>Luxury House — Facade</p></div>
+        </div>
+
+        <!-- NEW: Astete Park interiors -->
+        <div class="gallery__item" data-category="interior">
+          <img src="images/astete-kitchen.jpg" alt="Astete Park Kitchen" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Kitchen</h3><p>Modern Residential</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/astete-bathroom.jpg" alt="Astete Park Bathroom" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Bathroom</h3><p>Luxury Finishes</p></div>
+        </div>
+
+        <!-- NEW: Astete Park common areas -->
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/astete-coworking.jpg" alt="Astete Park Coworking" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Coworking</h3><p>Premium Amenities</p></div>
+        </div>
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/astete-gym.jpg" alt="Astete Park Gym" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Gym</h3><p>Residential Amenities</p></div>
+        </div>
+        <div class="gallery__item gallery__item--wide" data-category="commercial">
+          <img src="images/astete-gourmet.jpg" alt="Astete Park Gourmet Area" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Gourmet</h3><p>Social Area</p></div>
+        </div>
+
+        <!-- NEW: Oficina Emilio -->
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/oficina-emilio.jpg" alt="Office Design" loading="lazy">
+          <div class="gallery__overlay"><h3>Executive Office</h3><p>Corporate Interior</p></div>
+        </div>
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/oficina-lounge.jpg" alt="Office Lounge" loading="lazy">
+          <div class="gallery__overlay"><h3>Office Lounge</h3><p>Corporate Relaxation Area</p></div>
+        </div>
+
+        <!-- NEW: Chachapoyas Lobby -->
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/chachapoyas-lobby.jpg" alt="Chachapoyas Lobby" loading="lazy">
+          <div class="gallery__overlay"><h3>Chachapoyas — Lobby</h3><p>Residential Building</p></div>
+        </div>
+
+        <!-- NEW: Sol Naixet -->
+        <div class="gallery__item gallery__item--wide" data-category="exterior">
+          <img src="images/sol-naixet-aerial.jpg" alt="Sol Naixet Aerial View" loading="lazy">
+          <div class="gallery__overlay"><h3>Sol Naixet</h3><p>Aerial View — Residential Complex</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/sol-naixet-living.jpg" alt="Sol Naixet Living Room" loading="lazy">
+          <div class="gallery__overlay"><h3>Sol Naixet — Living</h3><p>Ground Floor Apartment</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/sol-naixet-bedroom.jpg" alt="Sol Naixet Master Bedroom" loading="lazy">
+          <div class="gallery__overlay"><h3>Sol Naixet — Bedroom</h3><p>Master Suite</p></div>
+        </div>
+
+        <!-- NEW: Tomas Marsano -->
+        <div class="gallery__item" data-category="exterior">
+          <img src="images/tomas-marsano-malecon.jpg" alt="Malecon Costa Sur" loading="lazy">
+          <div class="gallery__overlay"><h3>Malecon Costa Sur</h3><p>Coastal Residential</p></div>
+        </div>
+
+        <!-- CREATIVE: moved from creative section -->
+        <div class="gallery__item gallery__item--wide" data-category="creative">
+          <img src="images/gondor-05-final.jpg" alt="Gondor — The White City Final Render" loading="lazy">
+          <div class="gallery__overlay"><h3>Gondor — The White City</h3><p>Fantasy Environment — 3ds Max & Corona</p></div>
+        </div>
+        <div class="gallery__item" data-category="creative">
+          <img src="images/spiderman.jpg" alt="Spider-Man 3D Character Render" loading="lazy">
+          <div class="gallery__overlay"><h3>Spider-Man</h3><p>3D Character — Corona Renderer</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN PROCESS ========== -->
+  <section class="section section--alt" id="creative">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label">Workflow</span>
+        <h2 class="section__title">Design <strong>Process</strong></h2>
+        <p class="section__subtitle">From raw geometry to cinematic final render — a step-by-step look at how I build photorealistic scenes. Project: Gondor — The White City.</p>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="timeline__item">
+          <div class="timeline__marker">
+            <span class="timeline__num">01</span>
+          </div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/gondor-01-clay.jpg" alt="Gondor - Clay Render" loading="lazy">
+            </div>
+            <div class="timeline__info">
+              <h3>Clay Model</h3>
+              <p>Base geometry and massing. Pure 3D modeling without materials — focusing on proportions, scale, and architectural detail.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__marker">
+            <span class="timeline__num">02</span>
+          </div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/gondor-02-vegetation.jpg" alt="Gondor - Vegetation Pass" loading="lazy">
+            </div>
+            <div class="timeline__info">
+              <h3>Vegetation</h3>
+              <p>Adding organic elements — trees, grass, ground cover. Integrating nature with the built environment to create realism.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__marker">
+            <span class="timeline__num">03</span>
+          </div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/gondor-03-environment.jpg" alt="Gondor - Full Environment" loading="lazy">
+            </div>
+            <div class="timeline__info">
+              <h3>Environment</h3>
+              <p>Full scene assembly — sky, water, terrain, and atmospheric effects. Building the complete world around the architecture.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__marker">
+            <span class="timeline__num">04</span>
+          </div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/gondor-04-composition.jpg" alt="Gondor - Composition" loading="lazy">
+            </div>
+            <div class="timeline__info">
+              <h3>Composition</h3>
+              <p>Camera placement, lighting design, and material refinement. Crafting the cinematic framing that tells the story.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__marker">
+            <span class="timeline__num">05</span>
+          </div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/gondor-05-final.jpg" alt="Gondor - Final Render" loading="lazy">
+            </div>
+            <div class="timeline__info">
+              <h3>Final Render</h3>
+              <p>High-resolution render with Corona Renderer, followed by color grading and post-production. The complete vision realized.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 360° EXPERIENCE ========== -->
+  <section class="section" id="pano360">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label">Immersive</span>
+        <h2 class="section__title">360° <strong>Experience</strong></h2>
+        <p class="section__subtitle">Explore spaces interactively. Click and drag to look around — just like being there.</p>
+      </div>
+
+      <div class="viewer-360 reveal">
+        <div class="viewer-360__container" id="panorama"></div>
+        <div class="viewer-360__selector">
+          <button class="viewer-360__btn active" data-pano="images/depto1-360.jpg">Luxury Apartment</button>
+          <button class="viewer-360__btn" data-pano="images/astete-360-sala.jpg">Astete Park — Living Room</button>
+          <button class="viewer-360__btn" data-pano="images/astete-360-cocina.jpg">Astete Park — Kitchen</button>
+          <button class="viewer-360__btn" data-pano="images/astete-360-bedroom.jpg">Astete Park — Master Bedroom</button>
+          <button class="viewer-360__btn" data-pano="images/astete-360-bathroom.jpg">Astete Park — Bathroom</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VIDEOS ========== -->
+  <section class="section section--alt" id="videos">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label">Motion</span>
+        <h2 class="section__title">Architectural <strong>Animation</strong></h2>
+        <p class="section__subtitle">Cinematic walkthroughs that bring spaces to life with movement, light, and atmosphere.</p>
+      </div>
+
+      <div class="video-grid reveal">
+        <div class="video-card">
+          <video controls preload="metadata" poster="images/depto1-living.jpg">
+            <source src="videos/dolly-in.mp4" type="video/mp4">
+          </video>
+          <div class="video-card__info">
+            <h3 class="video-card__title">Slow Dolly In</h3>
+            <p class="video-card__desc">Cinematic approach into a modern living space</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" poster="images/depto1-living.jpg">
+            <source src="videos/switch-design.mp4" type="video/mp4">
+          </video>
+          <div class="video-card__info">
+            <h3 class="video-card__title">Design Switch</h3>
+            <p class="video-card__desc">Real-time transition between design options</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" poster="images/depto1-living.jpg">
+            <source src="videos/sala-personas.mp4" type="video/mp4">
+          </video>
+          <div class="video-card__info">
+            <h3 class="video-card__title">Living with People</h3>
+            <p class="video-card__desc">Bringing life into architectural visualization</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" poster="images/depto1-living.jpg">
+            <source src="videos/empty-room.mp4" type="video/mp4">
+          </video>
+          <div class="video-card__info">
+            <h3 class="video-card__title">Empty Room</h3>
+            <p class="video-card__desc">Pure architectural space — light, materials, silence</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">About</span>
+        <h2 class="section__title">The Artist Behind <strong>the Vision</strong></h2>
+      </div>
+
+      <div class="about__grid reveal">
+        <div class="about__photo">
+          <img src="images/andrew-photo.jpg" alt="Andrew Montejo — Architectural Visualization Artist">
+        </div>
+        <div class="about__text">
+          <p>
+            I'm Andrew Montejo, an architect and 3D visualization specialist based in
+            Lima, Peru, with over 8 years of experience transforming architectural blueprints
+            into compelling photorealistic imagery.
+          </p>
+          <p>
+            My process is meticulous: every project goes through careful 3D modeling,
+            scene composition, lighting design, material crafting, and high-resolution rendering —
+            followed by professional post-production and AI enhancement to achieve the
+            highest level of realism.
+          </p>
+          <p>
+            I work with architecture studios, real estate developers, and interior designers
+            worldwide. Whether you need a single hero image, a full set of marketing renders,
+            immersive 360° panoramas, or cinematic animations — I deliver work that sells.
+          </p>
+
+          <div class="about__stats">
+            <div>
+              <span class="stat__number">8+</span>
+              <span class="stat__label">Years Experience</span>
+            </div>
+            <div>
+              <span class="stat__number">50+</span>
+              <span class="stat__label">Projects Delivered</span>
+            </div>
+            <div>
+              <span class="stat__number">2-5</span>
+              <span class="stat__label">Days Delivery</span>
+            </div>
+          </div>
+
+          <div class="about__tools-grid">
+            <span class="tool-chip">3ds Max</span>
+            <span class="tool-chip">Corona Renderer</span>
+            <span class="tool-chip">V-Ray</span>
+            <span class="tool-chip">AI Post-Production</span>
+            <span class="tool-chip">Photoshop</span>
+            <span class="tool-chip">360° Panoramas</span>
+            <span class="tool-chip">Animation</span>
+            <span class="tool-chip">After Effects</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section section--alt" id="services">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label">Services</span>
+        <h2 class="section__title">What I <strong>Offer</strong></h2>
+        <p class="section__subtitle">Every project is tailored to your needs. Request a custom quote for your specific requirements.</p>
+      </div>
+
+      <div class="services__grid reveal">
+        <div class="service-card">
+          <span class="service-card__icon">◈</span>
+          <h3 class="service-card__title">Interior Renders</h3>
+          <p class="service-card__desc">Photorealistic interior visualizations with precise lighting, materials, and atmosphere for residential, commercial, and hospitality projects.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">◇</span>
+          <h3 class="service-card__title">Exterior Renders</h3>
+          <p class="service-card__desc">Stunning exterior visualizations with realistic environments — day, dusk, and night scenes that showcase your building in context.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">◉</span>
+          <h3 class="service-card__title">360° Panoramas</h3>
+          <p class="service-card__desc">Interactive panoramic renders for virtual tours and client presentations. Let your buyers explore the space before it's built.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">▶</span>
+          <h3 class="service-card__title">Animation</h3>
+          <p class="service-card__desc">Cinematic walkthrough animations and flyovers with professional lighting transitions, camera movement, and post-production.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">✦</span>
+          <h3 class="service-card__title">AI-Enhanced Viz</h3>
+          <p class="service-card__desc">Next-generation renders combining traditional 3D with AI technology for photorealistic material finishes and faster delivery.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">△</span>
+          <h3 class="service-card__title">Post-Production</h3>
+          <p class="service-card__desc">Professional color grading, compositing, and AI enhancement of existing renders to elevate their quality to the next level.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label">Contact</span>
+        <h2 class="section__title">Let's Work <strong>Together</strong></h2>
+        <p class="section__subtitle">Send me your plans, references, and vision. I'll provide a detailed custom quote within 24 hours.</p>
+      </div>
+
+      <div class="contact__grid reveal">
+        <div class="contact__info">
+          <h3>Ready to bring your project to life?</h3>
+          <p>
+            I work with architecture studios and developers worldwide.
+            Every project receives personalized attention and a tailored approach
+            to match your vision and timeline.
+          </p>
+          <div class="contact__methods">
+            <a href="mailto:Drew.viz.pe@gmail.com" class="contact-method">
+              <span class="contact-method__icon">✉</span>
+              <div>
+                <div class="contact-method__label">Email</div>
+                <div class="contact-method__value">Drew.viz.pe@gmail.com</div>
+              </div>
+            </a>
+            <a href="https://wa.me/51970773849" target="_blank" class="contact-method">
+              <span class="contact-method__icon">💬</span>
+              <div>
+                <div class="contact-method__label">WhatsApp</div>
+                <div class="contact-method__value">+51 970 773 849</div>
+              </div>
+            </a>
+            <div class="contact-method">
+              <span class="contact-method__icon">📍</span>
+              <div>
+                <div class="contact-method__label">Based in</div>
+                <div class="contact-method__value">Lima, Peru — Available Worldwide</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact__form" action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service">
+              <option value="Interior Renders">Interior Renders</option>
+              <option value="Exterior Renders">Exterior Renders</option>
+              <option value="360 Panorama">360° Panorama</option>
+              <option value="Animation">Architectural Animation</option>
+              <option value="AI Enhancement">AI-Enhanced Visualization</option>
+              <option value="Post-Production">Post-Production</option>
+              <option value="Full Package">Full Package</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" placeholder="Tell me about your project: type of space, style references, number of renders, timeline..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center;">Send via WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LIGHTBOX ========== -->
+  <div class="lightbox">
+    <button class="lightbox__close">✕</button>
+    <button class="lightbox__nav lightbox__prev">←</button>
+    <button class="lightbox__nav lightbox__next">→</button>
+    <img class="lightbox__img" src="" alt="Render preview">
+    <div class="lightbox__info">
+      <h3></h3>
+      <p></p>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>© 2026 DREW.VIZ — Architectural Visualization Studio</p>
+    <div class="footer__social">
+      <a href="mailto:Drew.viz.pe@gmail.com">Email</a>
+      <a href="https://wa.me/51970773849" target="_blank">WhatsApp</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
