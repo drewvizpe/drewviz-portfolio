@@ -124,12 +124,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const lightboxCounter = document.querySelector('.lightbox__counter');
+
   function openLightbox() {
     const data = currentLightboxSet[currentLightboxIndex];
     if (!data) return;
     lightboxImg.src = data.src;
     if (lightboxTitle) lightboxTitle.textContent = data.title;
     if (lightboxDesc) lightboxDesc.textContent = data.desc;
+    if (lightboxCounter) lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${currentLightboxSet.length}`;
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -240,24 +243,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- Contact form → WhatsApp ---
+  // --- Contact form → WhatsApp (XSS-safe) ---
   const form = document.querySelector('.contact__form');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = form.querySelector('[name="name"]')?.value || '';
-      const email = form.querySelector('[name="email"]')?.value || '';
-      const service = form.querySelector('[name="service"]')?.value || '';
-      const message = form.querySelector('[name="message"]')?.value || '';
+      const name = encodeURIComponent(form.querySelector('[name="name"]')?.value || '');
+      const email = encodeURIComponent(form.querySelector('[name="email"]')?.value || '');
+      const service = encodeURIComponent(form.querySelector('[name="service"]')?.value || '');
+      const message = encodeURIComponent(form.querySelector('[name="message"]')?.value || '');
       const text = `Hi! I'm ${name} (${email}).%0A%0AI'm interested in: ${service}%0A%0A${message}`;
       const phone = '51970773849';
       window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
     });
   }
 
-  // --- Active nav link on scroll ---
+  // --- Active nav link on scroll + Back to top ---
   const sections = document.querySelectorAll('section[id]');
   const navLinksAll = document.querySelectorAll('.nav__links a');
+  const backToTop = document.querySelector('.back-to-top');
+
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
@@ -269,6 +274,17 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.remove('active');
       if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
     });
+
+    // Show/hide back to top button
+    if (backToTop) {
+      backToTop.classList.toggle('visible', window.scrollY > 600);
+    }
   });
+
+  if (backToTop) {
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
 });

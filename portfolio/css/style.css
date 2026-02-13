@@ -34,6 +34,20 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 button { font-family: var(--font); }
 
+/* Skip link (accessibility) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.85rem;
+  z-index: 10000;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0.5rem; }
+
 /* ==========================================
    NAVIGATION
    ========================================== */
@@ -263,6 +277,13 @@ button { font-family: var(--font); }
 }
 .section__header--center .section__subtitle { margin-left: auto; margin-right: auto; }
 .container { max-width: 1300px; margin: 0 auto; }
+
+.section__cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3.5rem;
+}
 
 /* ==========================================
    GALLERY — Masonry-like, no crop
@@ -613,6 +634,15 @@ button { font-family: var(--font); }
 .lightbox__nav:hover { border-color: var(--accent); color: var(--accent); }
 .lightbox__prev { left: 1.5rem; }
 .lightbox__next { right: 1.5rem; }
+.lightbox__counter {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+}
 
 /* ==========================================
    FOOTER
@@ -629,6 +659,35 @@ button { font-family: var(--font); }
   font-size: 0.73rem; letter-spacing: 1px; text-transform: uppercase;
 }
 .footer__social a:hover { color: var(--accent); }
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+}
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
 
 /* ==========================================
    ANIMATED ACCENT LINE (decoration)

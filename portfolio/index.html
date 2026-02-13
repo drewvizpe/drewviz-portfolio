@@ -7,12 +7,47 @@
   <meta name="description" content="High-end architectural visualization by Drew.Viz. Photorealistic renders, 360° panoramas, AI-enhanced imagery and cinematic animations for architecture studios worldwide. Based in Lima, Peru.">
   <meta name="keywords" content="architectural visualization, 3D rendering, archviz, Corona Renderer, VRay, interior design, exterior render, 360 panorama, architectural animation, 3ds Max, AI rendering">
   <meta name="author" content="Andrew Montejo — Drew.Viz">
+  <link rel="canonical" href="https://drewviz.com">
 
   <!-- Open Graph -->
   <meta property="og:title" content="DREW.VIZ | Architectural Visualization Studio">
   <meta property="og:description" content="Photorealistic architectural renders, immersive 360° panoramas and cinematic animations. Available worldwide.">
   <meta property="og:image" content="images/kaisergarten.jpg">
+  <meta property="og:url" content="https://drewviz.com">
   <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DREW.VIZ | Architectural Visualization Studio">
+  <meta name="twitter:description" content="Photorealistic architectural renders, immersive 360° panoramas and cinematic animations.">
+  <meta name="twitter:image" content="images/kaisergarten.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DREW.VIZ — Architectural Visualization Studio",
+    "description": "High-end architectural visualization: photorealistic renders, 360° panoramas, cinematic animations and AI-enhanced imagery for architects and developers worldwide.",
+    "url": "https://drewviz.com",
+    "image": "images/kaisergarten.jpg",
+    "telephone": "+51970773849",
+    "email": "Drew.viz.pe@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lima",
+      "addressCountry": "PE"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Andrew Montejo",
+      "jobTitle": "Architectural Visualization Artist"
+    },
+    "areaServed": "Worldwide",
+    "serviceType": ["Architectural Visualization", "3D Rendering", "360 Panorama", "Architectural Animation"],
+    "priceRange": "$$"
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +56,7 @@
 
   <!-- Pannellum 360 Viewer -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
-  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js" defer></script>
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
@@ -31,6 +66,9 @@
 </head>
 <body>
 
+  <!-- Skip to content (accessibility) -->
+  <a href="#portfolio" class="skip-link">Skip to content</a>
+
   <!-- ========== NAVIGATION ========== -->
   <nav class="nav">
     <a href="#" class="nav__logo">DREW<span>.VIZ</span></a>
@@ -39,10 +77,11 @@
       <li><a href="#creative">Process</a></li>
       <li><a href="#pano360">360°</a></li>
       <li><a href="#videos">Videos</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="nav__hamburger">
+    <div class="nav__hamburger" aria-label="Toggle menu" role="button" tabindex="0">
       <span></span>
       <span></span>
       <span></span>
@@ -52,7 +91,7 @@
   <!-- ========== HERO — Video Background ========== -->
   <section class="hero" id="home">
     <div class="hero__video-bg">
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline poster="images/hero-poster.jpg">
         <source src="videos/dolly-in.mp4" type="video/mp4">
       </video>
     </div>
@@ -239,6 +278,11 @@
           <div class="gallery__overlay"><h3>Spider-Man</h3><p>3D Character — Corona Renderer</p></div>
         </div>
       </div>
+
+      <div class="section__cta reveal">
+        <a href="#contact" class="btn btn--primary">Request a Quote</a>
+        <a href="#creative" class="btn btn--outline">See My Process</a>
+      </div>
     </div>
   </section>
 
@@ -363,7 +407,7 @@
 
       <div class="video-grid reveal">
         <div class="video-card">
-          <video controls preload="metadata" poster="images/depto1-living.jpg">
+          <video controls preload="metadata" poster="images/poster-dolly-in.jpg">
             <source src="videos/dolly-in.mp4" type="video/mp4">
           </video>
           <div class="video-card__info">
@@ -372,7 +416,7 @@
           </div>
         </div>
         <div class="video-card">
-          <video controls preload="metadata" poster="images/depto1-living.jpg">
+          <video controls preload="metadata" poster="images/poster-switch-design.jpg">
             <source src="videos/switch-design.mp4" type="video/mp4">
           </video>
           <div class="video-card__info">
@@ -381,7 +425,7 @@
           </div>
         </div>
         <div class="video-card">
-          <video controls preload="metadata" poster="images/depto1-living.jpg">
+          <video controls preload="metadata" poster="images/poster-sala-personas.jpg">
             <source src="videos/sala-personas.mp4" type="video/mp4">
           </video>
           <div class="video-card__info">
@@ -390,7 +434,7 @@
           </div>
         </div>
         <div class="video-card">
-          <video controls preload="metadata" poster="images/depto1-living.jpg">
+          <video controls preload="metadata" poster="images/poster-empty-room.jpg">
             <source src="videos/empty-room.mp4" type="video/mp4">
           </video>
           <div class="video-card__info">
@@ -398,6 +442,10 @@
             <p class="video-card__desc">Pure architectural space — light, materials, silence</p>
           </div>
         </div>
+      </div>
+
+      <div class="section__cta reveal">
+        <a href="#contact" class="btn btn--primary">Start Your Project</a>
       </div>
     </div>
   </section>
@@ -531,7 +579,7 @@
                 <div class="contact-method__value">Drew.viz.pe@gmail.com</div>
               </div>
             </a>
-            <a href="https://wa.me/51970773849" target="_blank" class="contact-method">
+            <a href="https://wa.me/51970773849" target="_blank" rel="noopener noreferrer" class="contact-method">
               <span class="contact-method__icon">💬</span>
               <div>
                 <div class="contact-method__label">WhatsApp</div>
@@ -583,9 +631,10 @@
 
   <!-- ========== LIGHTBOX ========== -->
   <div class="lightbox">
-    <button class="lightbox__close">✕</button>
-    <button class="lightbox__nav lightbox__prev">←</button>
-    <button class="lightbox__nav lightbox__next">→</button>
+    <button class="lightbox__close" aria-label="Close lightbox">✕</button>
+    <button class="lightbox__nav lightbox__prev" aria-label="Previous image">←</button>
+    <button class="lightbox__nav lightbox__next" aria-label="Next image">→</button>
+    <span class="lightbox__counter"></span>
     <img class="lightbox__img" src="" alt="Render preview">
     <div class="lightbox__info">
       <h3></h3>
@@ -594,11 +643,18 @@
   </div>
 
   <!-- ========== FOOTER ========== -->
+  <!-- ========== BACK TO TOP ========== -->
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <p>© 2026 DREW.VIZ — Architectural Visualization Studio</p>
     <div class="footer__social">
       <a href="mailto:Drew.viz.pe@gmail.com">Email</a>
-      <a href="https://wa.me/51970773849" target="_blank">WhatsApp</a>
+      <a href="https://wa.me/51970773849" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://www.behance.net" target="_blank" rel="noopener noreferrer">Behance</a>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </footer>
 
