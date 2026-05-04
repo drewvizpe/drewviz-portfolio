@@ -1,0 +1,60 @@
+# Local Netlify folder
+.netlify
+
+# Credentials
+job_monitor/.env
+*.env
+
+# Cache files
+job_monitor/studio_emails_cache.json
+
+# Claude
+.claude/
+
+# === Local-only project files (NOT for public repo) ===
+
+# Personal/operational meta-files
+CONTINUAR.md
+PLAN_FINANCIERO_2026.md
+RENDIFY_PC_BUILD_PLAN.md
+generate_portfolio_2026.py
+
+# Job application track (private)
+CGCONNECT/
+
+# Old interview prep
+INTERVIEW_*.md
+INTERVIEW_*.pdf
+INTERVIEW_*.docx
+
+# Local launchers / utilities
+*.bat
+
+# Residuales de sesiones previas (interview docs gen scripts)
+append_*.py
+fix_*.py
+generate_1page*.py
+generate_desktop_plan.py
+generate_documentation.py
+generate_interview_docs.py
+generate_quickref_docx.py
+generate_unified*.py
+read_doc.py
+simplify_english.py
+
+# Root duplicate files (NOT source of truth — portfolio/ is)
+# Mantenemos local porque generate_portfolio_2026.py los usa para el PDF,
+# pero NO van al repo público (Netlify deploya desde portfolio/)
+/index.html
+/css/
+/js/
+/images/
+/videos/
+/optimize_*.py
+/robots.txt
+/sitemap.xml
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
