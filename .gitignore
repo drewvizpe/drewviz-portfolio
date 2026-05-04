@@ -16,7 +16,7 @@ job_monitor/studio_emails_cache.json
 # Personal/operational meta-files
 CONTINUAR.md
 PLAN_FINANCIERO_2026.md
-RENDIFY_PC_BUILD_PLAN.md
+RENDIFY_*.md
 generate_portfolio_2026.py
 
 # Job application track (private)
