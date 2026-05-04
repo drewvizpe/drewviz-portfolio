@@ -525,7 +525,13 @@ button { font-family: var(--font); }
   font-size: 2.2rem; font-weight: 700;
   color: var(--accent);
   display: block; line-height: 1;
+  white-space: nowrap;
 }
+.about__stats > div:has(.stat__number:not(:empty)) .stat__number {
+  /* fallback for variable-length stat values */
+}
+/* If stat number is text (not numeric), reduce size so it doesn't wrap weird */
+.stat__number--text { font-size: 1.4rem; letter-spacing: 1px; text-transform: uppercase; }
 .stat__label {
   font-size: 0.68rem; letter-spacing: 2px;
   text-transform: uppercase; color: var(--text-dim);
@@ -566,6 +572,10 @@ button { font-family: var(--font); }
 .service-card__icon { font-size: 1.5rem; margin-bottom: 1rem; display: block; color: var(--accent); }
 .service-card__title { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; }
 .service-card__desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; }
+/* Add-on / optional service: visually subordinate */
+.service-card--addon { opacity: 0.72; }
+.service-card--addon:hover { opacity: 1; }
+.service-card--addon .service-card__icon { color: var(--text-dim); }
 
 /* ==========================================
    CONTACT

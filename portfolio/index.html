@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DREW.VIZ | Architectural Visualization Studio</title>
-  <meta name="description" content="High-end architectural visualization by Drew.Viz. Photorealistic renders, 360° panoramas, AI-enhanced imagery and cinematic animations for architecture studios worldwide. Based in Lima, Peru.">
-  <meta name="keywords" content="architectural visualization, 3D rendering, archviz, Corona Renderer, VRay, interior design, exterior render, 360 panorama, architectural animation, 3ds Max, AI rendering">
+  <meta name="description" content="High-end architectural visualization by Drew.Viz. Photorealistic renders, immersive 360° panoramas and cinematic animations for architecture studios and luxury developers worldwide. Based in Lima, Peru.">
+  <meta name="keywords" content="architectural visualization, 3D rendering, archviz, Corona Renderer, VRay, luxury residential, hospitality renders, interior design, exterior render, 360 panorama, architectural animation, 3ds Max">
   <meta name="author" content="Andrew Montejo — Drew.Viz">
   <link rel="canonical" href="https://drewviz.com">
 
   <!-- Open Graph -->
   <meta property="og:title" content="DREW.VIZ | Architectural Visualization Studio">
-  <meta property="og:description" content="Photorealistic architectural renders, immersive 360° panoramas and cinematic animations. Available worldwide.">
+  <meta property="og:description" content="Photorealistic renders, immersive 360° panoramas and cinematic animations for luxury residential, hospitality, and architectural projects. Available worldwide.">
   <meta property="og:image" content="https://drewviz.com/images/kaisergarten.jpg">
   <meta property="og:url" content="https://drewviz.com">
   <meta property="og:type" content="website">
@@ -28,7 +28,7 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "DREW.VIZ — Architectural Visualization Studio",
-    "description": "High-end architectural visualization: photorealistic renders, 360° panoramas, cinematic animations and AI-enhanced imagery for architects and developers worldwide.",
+    "description": "High-end architectural visualization: photorealistic renders, 360° panoramas and cinematic animations for luxury residential, hospitality, and commercial projects worldwide.",
     "url": "https://drewviz.com",
     "image": "https://drewviz.com/images/kaisergarten.jpg",
     "telephone": "+51970773849",
@@ -99,10 +99,10 @@
     <div class="particles" id="particles"></div>
     <div class="hero__content">
       <span class="hero__label">Architectural Visualization Studio</span>
-      <h1 class="hero__title">We bring <strong>architecture</strong> to life</h1>
+      <h1 class="hero__title">Architectural <strong>narratives</strong><br>in light and form</h1>
       <p class="hero__desc">
-        Photorealistic renders, immersive 360° experiences, cinematic animations
-        and AI-enhanced imagery for architects and developers worldwide.
+        Photorealistic renders, immersive 360° experiences and cinematic
+        animations for luxury residential, hospitality and commercial projects worldwide.
       </p>
       <div class="hero__cta">
         <a href="#contact" class="btn btn--primary">Request a Quote</a>
@@ -133,13 +133,40 @@
       </div>
 
       <div class="gallery reveal">
-        <div class="gallery__item gallery__item--wide" data-category="exterior">
+        <!-- HERO: Javier — luxury hospitality vibe -->
+        <div class="gallery__item gallery__item--wide" data-category="interior">
+          <img src="images/javier-living-fireplace.jpg" alt="Javier Residence Living with Fireplace" loading="lazy">
+          <div class="gallery__overlay"><h3>Javier Residence — Living</h3><p>Luxury Residential · Fireplace &amp; Stone Wall</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/javier-master-bath.jpg" alt="Javier Residence Master Bath" loading="lazy">
+          <div class="gallery__overlay"><h3>Javier — Master Bath</h3><p>Stone &amp; Travertine · Spa Atmosphere</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="exterior">
           <img src="images/kaisergarten.jpg" alt="Kaisergarten Tower at Dusk" loading="lazy">
           <div class="gallery__overlay"><h3>Kaisergarten Tower</h3><p>Luxury Residential Exterior</p></div>
         </div>
         <div class="gallery__item" data-category="interior">
+          <img src="images/javier-living-pool.jpg" alt="Javier Residence Living with Pool View" loading="lazy">
+          <div class="gallery__overlay"><h3>Javier — Living with Pool View</h3><p>Indoor-Outdoor Connection</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/vanessa-open-living.jpg" alt="Vanessa Open Living and Dining" loading="lazy">
+          <div class="gallery__overlay"><h3>Vanessa — Open Living &amp; Dining</h3><p>Live-Edge Table · Curated Lighting</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="interior">
           <img src="images/erika-kitchen.jpg" alt="Erika's Kitchen" loading="lazy">
           <div class="gallery__overlay"><h3>Erika's Kitchen</h3><p>Natural Light Study</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/vanessa-master-suite.jpg" alt="Vanessa Master Suite" loading="lazy">
+          <div class="gallery__overlay"><h3>Vanessa — Master Suite</h3><p>Textured Headboard · Warm Ambient</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/javier-powder-room.jpg" alt="Javier Powder Room" loading="lazy">
+          <div class="gallery__overlay"><h3>Javier — Powder Room</h3><p>Emerald Tile · Brass Accents</p></div>
         </div>
 
         <div class="gallery__item" data-category="interior">
@@ -386,11 +413,11 @@
       <div class="viewer-360 reveal">
         <div class="viewer-360__container" id="panorama"></div>
         <div class="viewer-360__selector">
-          <button class="viewer-360__btn active" data-pano="images/depto1-360.jpg">Luxury Apartment</button>
-          <button class="viewer-360__btn" data-pano="images/astete-360-sala.jpg">Astete Park — Living Room</button>
+          <button class="viewer-360__btn active" data-pano="images/astete-360-sala.jpg">Astete Park — Living Room</button>
           <button class="viewer-360__btn" data-pano="images/astete-360-cocina.jpg">Astete Park — Kitchen</button>
           <button class="viewer-360__btn" data-pano="images/astete-360-bedroom.jpg">Astete Park — Master Bedroom</button>
           <button class="viewer-360__btn" data-pano="images/astete-360-bathroom.jpg">Astete Park — Bathroom</button>
+          <button class="viewer-360__btn" data-pano="images/depto1-360.jpg">Luxury Apartment</button>
         </div>
       </div>
     </div>
@@ -470,14 +497,14 @@
           </p>
           <p>
             My process is meticulous: every project goes through careful 3D modeling,
-            scene composition, lighting design, material crafting, and high-resolution rendering —
-            followed by professional post-production and AI enhancement to achieve the
-            highest level of realism.
+            scene composition, lighting design, material crafting, high-resolution rendering,
+            and professional post-production — crafted to communicate architectural intent
+            with cinematic clarity.
           </p>
           <p>
-            I work with architecture studios, real estate developers, and interior designers
-            worldwide. Whether you need a single hero image, a full set of marketing renders,
-            immersive 360° panoramas, or cinematic animations — I deliver work that sells.
+            Current and recent client work covers luxury brands across watchmaking, retail,
+            and beauty (under NDA), alongside residential, hospitality and commercial projects
+            for architecture studios and developers worldwide.
           </p>
 
           <div class="about__stats">
@@ -490,8 +517,8 @@
               <span class="stat__label">Projects Delivered</span>
             </div>
             <div>
-              <span class="stat__number">2-5</span>
-              <span class="stat__label">Days Delivery</span>
+              <span class="stat__number stat__number--text">Luxury</span>
+              <span class="stat__label">Brand Experience (NDA)</span>
             </div>
           </div>
 
@@ -499,11 +526,13 @@
             <span class="tool-chip">3ds Max</span>
             <span class="tool-chip">Corona Renderer</span>
             <span class="tool-chip">V-Ray</span>
-            <span class="tool-chip">AI Post-Production</span>
             <span class="tool-chip">Photoshop</span>
+            <span class="tool-chip">After Effects</span>
+            <span class="tool-chip">Forest Pack</span>
+            <span class="tool-chip">RailClone</span>
             <span class="tool-chip">360° Panoramas</span>
             <span class="tool-chip">Animation</span>
-            <span class="tool-chip">After Effects</span>
+            <span class="tool-chip">AI Post (optional)</span>
           </div>
         </div>
       </div>
@@ -523,12 +552,12 @@
         <div class="service-card">
           <span class="service-card__icon">◈</span>
           <h3 class="service-card__title">Interior Renders</h3>
-          <p class="service-card__desc">Photorealistic interior visualizations with precise lighting, materials, and atmosphere for residential, commercial, and hospitality projects.</p>
+          <p class="service-card__desc">Photorealistic interior visualizations with precise lighting, materials, and atmosphere for luxury residential, hospitality, and commercial projects.</p>
         </div>
         <div class="service-card">
           <span class="service-card__icon">◇</span>
           <h3 class="service-card__title">Exterior Renders</h3>
-          <p class="service-card__desc">Stunning exterior visualizations with realistic environments — day, dusk, and night scenes that showcase your building in context.</p>
+          <p class="service-card__desc">Cinematic exterior visualizations with realistic environments — day, dusk, and night scenes that showcase your building in context.</p>
         </div>
         <div class="service-card">
           <span class="service-card__icon">◉</span>
@@ -541,14 +570,14 @@
           <p class="service-card__desc">Cinematic walkthrough animations and flyovers with professional lighting transitions, camera movement, and post-production.</p>
         </div>
         <div class="service-card">
-          <span class="service-card__icon">✦</span>
-          <h3 class="service-card__title">AI-Enhanced Viz</h3>
-          <p class="service-card__desc">Next-generation renders combining traditional 3D with AI technology for photorealistic material finishes and faster delivery.</p>
-        </div>
-        <div class="service-card">
           <span class="service-card__icon">△</span>
           <h3 class="service-card__title">Post-Production</h3>
-          <p class="service-card__desc">Professional color grading, compositing, and AI enhancement of existing renders to elevate their quality to the next level.</p>
+          <p class="service-card__desc">Professional color grading, compositing, and image refinement to elevate every render to a final, presentation-ready quality.</p>
+        </div>
+        <div class="service-card service-card--addon">
+          <span class="service-card__icon">✦</span>
+          <h3 class="service-card__title">AI Augmentation <span style="opacity:.6;font-weight:400;font-size:.8em;">— optional add-on</span></h3>
+          <p class="service-card__desc">For projects where it serves the brief, I can layer AI augmentation on top of traditional 3D output for additional material refinement or visual exploration.</p>
         </div>
       </div>
     </div>
@@ -615,8 +644,8 @@
               <option value="Exterior Renders">Exterior Renders</option>
               <option value="360 Panorama">360° Panorama</option>
               <option value="Animation">Architectural Animation</option>
-              <option value="AI Enhancement">AI-Enhanced Visualization</option>
               <option value="Post-Production">Post-Production</option>
+              <option value="AI Augmentation">AI Augmentation (optional add-on)</option>
               <option value="Full Package">Full Package</option>
             </select>
           </div>
