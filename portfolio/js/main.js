@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const mainGallery = document.querySelector('.gallery');
   const galleryItems = mainGallery ? Array.from(mainGallery.querySelectorAll('.gallery__item')) : [];
-  let activeFilter = 'interior'; // starts with interior active
+  let activeFilter = 'all'; // starts with all visible
 
   // Show initial filtered view
-  applyFilter('interior');
+  applyFilter('all');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
