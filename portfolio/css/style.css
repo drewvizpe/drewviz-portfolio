@@ -106,6 +106,20 @@ button { font-family: var(--font); }
 .nav__links a:hover, .nav__links a.active { color: var(--text); }
 .nav__links a:hover::after, .nav__links a.active::after { width: 100%; }
 
+.lang-toggle {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font);
+}
+.lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
 .nav__hamburger {
   display: none;
   flex-direction: column;
@@ -527,10 +541,7 @@ button { font-family: var(--font); }
   display: block; line-height: 1;
   white-space: nowrap;
 }
-.about__stats > div:has(.stat__number:not(:empty)) .stat__number {
-  /* fallback for variable-length stat values */
-}
-/* If stat number is text (not numeric), reduce size so it doesn't wrap weird */
+/* Variant for non-numeric stat values (e.g. "Luxury") */
 .stat__number--text { font-size: 1.4rem; letter-spacing: 1px; text-transform: uppercase; }
 .stat__label {
   font-size: 0.68rem; letter-spacing: 2px;
@@ -572,7 +583,7 @@ button { font-family: var(--font); }
 .service-card__icon { font-size: 1.5rem; margin-bottom: 1rem; display: block; color: var(--accent); }
 .service-card__title { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; }
 .service-card__desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; }
-/* Add-on / optional service: visually subordinate */
+/* Add-on / optional service: visually subordinate to the core grid items */
 .service-card--addon { opacity: 0.72; }
 .service-card--addon:hover { opacity: 1; }
 .service-card--addon .service-card__icon { color: var(--text-dim); }
@@ -607,6 +618,41 @@ button { font-family: var(--font); }
 }
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
 .form-group textarea { resize: vertical; min-height: 100px; }
+
+/* Form success state */
+.contact__form { position: relative; }
+.form--sent .form-row,
+.form--sent .form-group,
+.form--sent button[type="submit"] { opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+
+.form-success {
+  display: none; position: absolute; inset: 0;
+  flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  text-align: center;
+}
+.form-success.active { display: flex; animation: fadeInUp 0.6s ease forwards; }
+.form-success__checkmark { width: 70px; height: 70px; color: var(--accent); }
+.form-success__checkmark svg circle {
+  stroke-dasharray: 157; stroke-dashoffset: 157;
+  animation: circleDraw 0.6s 0.2s ease forwards;
+}
+.form-success__checkmark svg path {
+  stroke-dasharray: 40; stroke-dashoffset: 40;
+  animation: checkDraw 0.4s 0.7s ease forwards;
+}
+.form-success__title { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+.form-success__text { font-size: 0.95rem; color: var(--text-dim); max-width: 300px; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes circleDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes checkDraw {
+  to { stroke-dashoffset: 0; }
+}
 
 /* ==========================================
    LIGHTBOX
@@ -766,6 +812,7 @@ button { font-family: var(--font); }
   }
   .nav__links.open { display: flex; }
   .nav__links a { font-size: 1rem; }
+  .lang-toggle { z-index: 1001; margin-left: auto; margin-right: 0.75rem; }
   .nav__hamburger { display: flex; z-index: 1001; }
   .nav__hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .nav__hamburger.open span:nth-child(2) { opacity: 0; }

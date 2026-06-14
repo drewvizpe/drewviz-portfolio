@@ -243,18 +243,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- Contact form → Email (mailto) ---
+  // --- Contact form → FormSubmit.co (AJAX) ---
   const form = document.querySelector('.contact__form');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = form.querySelector('[name="name"]')?.value || '';
-      const email = form.querySelector('[name="email"]')?.value || '';
-      const service = form.querySelector('[name="service"]')?.value || '';
-      const message = form.querySelector('[name="message"]')?.value || '';
-      const subject = encodeURIComponent(`Project Inquiry: ${service}`);
-      const body = encodeURIComponent(`Hi! I'm ${name} (${email}).\n\nI'm interested in: ${service}\n\n${message}`);
-      window.location.href = `mailto:drew.viz.pe@gmail.com?subject=${subject}&body=${body}`;
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = document.documentElement.lang === 'es' ? 'Enviando...' : 'Sending...';
+
+      const data = {
+        name: form.querySelector('[name="name"]').value,
+        email: form.querySelector('[name="email"]').value,
+        service: form.querySelector('[name="service"]').value,
+        message: form.querySelector('[name="message"]').value,
+        _subject: `New Inquiry from ${form.querySelector('[name="name"]').value} — ${form.querySelector('[name="service"]').value}`,
+        _template: 'table'
+      };
+
+      fetch('https://formsubmit.co/ajax/drew.viz.pe@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(result => {
+        if (result.success) {
+          form.classList.add('form--sent');
+          document.getElementById('formSuccess').classList.add('active');
+        } else {
+          throw new Error('Submit failed');
+        }
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = document.documentElement.lang === 'es' ? 'Enviar Mensaje' : 'Send Message';
+        alert(document.documentElement.lang === 'es'
+          ? 'Algo salió mal. Inténtalo de nuevo o escríbenos a drew.viz.pe@gmail.com'
+          : 'Something went wrong. Please try again or email us directly at drew.viz.pe@gmail.com');
+      });
     });
   }
 

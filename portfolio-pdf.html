@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Drew Montejo — One Day of Light · Portfolio MMXXVI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#ebe6d9; --bg2:#e3ddcd; --ink:#272420; --soft:#5d584d; --dim:#67635a;
+  --line:rgba(39,36,32,0.16); --warm:#46566c;
+  --display:'Fraunces',Georgia,serif; --sans:'Archivo',-apple-system,sans-serif;
+}
+@page{ size:A4 landscape; margin:0; }
+html,body{background:#cfc9ba}
+body{font-family:var(--sans);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+.page{position:relative;width:297mm;height:210mm;overflow:hidden;background:var(--bg);page-break-after:always;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page:last-child{page-break-after:auto;break-after:auto}
+@media screen{body{padding:26px 0}.page{margin:0 auto 26px;box-shadow:0 24px 60px -30px rgba(0,0,0,.55)}}
+
+.grain{position:absolute;inset:0;pointer-events:none;z-index:60;opacity:0.045;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>")}
+@media print{ .grain{display:none!important} }
+
+a{color:inherit;text-decoration:none}
+
+/* ── BLEED IMAGE PAGE ── */
+.bleed{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
+.scrim{position:absolute;inset:0;z-index:1}
+.scrim.bottom{background:linear-gradient(180deg,rgba(12,11,9,0) 26%,rgba(12,11,9,.40) 56%,rgba(12,11,9,.78) 84%,rgba(12,11,9,.93) 100%)}
+.scrim.top{background:linear-gradient(180deg,rgba(12,11,9,.74) 0%,rgba(12,11,9,.30) 18%,rgba(12,11,9,0) 42%)}
+.over{position:absolute;z-index:3;color:#f4efe5}
+.over .time{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:#f3d6ab;text-shadow:0 1px 3px rgba(0,0,0,.85),0 2px 16px rgba(0,0,0,.8)}
+.over .name{font-family:var(--display);font-weight:300;line-height:.98;letter-spacing:-.02em;color:#f9f4ea;text-shadow:0 2px 30px rgba(0,0,0,.6),0 1px 4px rgba(0,0,0,.5)}
+.over .name i{font-style:italic;color:#f0d4ab}
+.over .line{font-family:var(--display);font-style:italic;font-weight:300;color:#f0e8d8;text-shadow:0 1px 16px rgba(0,0,0,.7)}
+.report{position:absolute;left:16mm;right:16mm;bottom:11mm;z-index:3;display:flex;justify-content:space-between;gap:18px;border-top:1px solid rgba(255,255,255,.34);padding-top:8px;font-size:10px;letter-spacing:.06em;color:#ece4d3;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.report b{font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:8.5px;color:#d6c8a8;margin-right:5px}
+.report span{font-variant-numeric:tabular-nums}
+
+/* ── MARFIL CONTENT PAGE ── */
+.pad{position:absolute;inset:0;padding:16mm 16mm;display:flex;flex-direction:column;z-index:2}
+.chead{display:flex;align-items:baseline;gap:18px;border-top:1px solid var(--line);padding-top:12px;flex-wrap:wrap}
+.chead .time{font-size:12px;letter-spacing:.3em;color:var(--warm);font-variant-numeric:tabular-nums}
+.chead .name{font-family:var(--display);font-weight:300;font-size:38px;line-height:1;letter-spacing:-.02em}
+.chead .name i{font-style:italic;color:var(--warm)}
+.chead .tag{margin-left:auto;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--dim)}
+.cline{font-family:var(--display);font-style:italic;font-weight:300;font-size:17px;color:var(--soft);max-width:150mm;margin-top:12px}
+.kick{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--warm)}
+
+/* COVER */
+.cover-top{top:15mm;left:16mm;right:16mm;display:flex;justify-content:space-between;align-items:flex-start}
+.cover-brand{font-family:var(--display);font-size:19px;color:#f9f4ea;text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.cover-brand i{font-style:italic;color:#f0d4ab}
+.cover-tag{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:#f4ecdb;text-align:right;text-shadow:0 1px 3px rgba(0,0,0,.85),0 2px 16px rgba(0,0,0,.8)}
+.cover-mid{left:16mm;right:16mm;bottom:30mm}
+.cover-mid .time{margin-bottom:14px}
+.cover-mid h1{font-family:var(--display);font-weight:300;font-size:96px;line-height:.92;letter-spacing:-.03em;color:#f9f4ea;text-shadow:0 3px 40px rgba(0,0,0,.6),0 1px 6px rgba(0,0,0,.5)}
+.cover-mid h1 i{font-style:italic;color:#f0d4ab}
+.cover-mid .sub{font-family:var(--display);font-style:italic;font-weight:300;font-size:22px;color:#f0e8d8;margin-top:18px;text-shadow:0 1px 16px rgba(0,0,0,.7)}
+.cover-foot{left:16mm;right:16mm;bottom:12mm;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#e7dece;text-shadow:0 1px 10px rgba(0,0,0,.7);z-index:3}
+
+/* MANIFESTO / INDEX */
+.idx-top{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:13px}
+.man{display:grid;grid-template-columns:1.04fr .96fr;gap:22mm;flex:1;align-items:center}
+.man-kick{font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--warm);margin-bottom:22px}
+.man-l h2{font-family:var(--display);font-weight:300;font-size:58px;line-height:.98;letter-spacing:-.028em;margin-bottom:28px}
+.man-l h2 i{font-style:italic;color:var(--warm)}
+.man-l p{font-family:var(--display);font-weight:300;font-size:16px;line-height:1.66;color:var(--soft);max-width:106mm;margin-bottom:14px}
+.man-l p strong{color:var(--ink);font-weight:500}
+.idx-head{font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.idx-list{border-top:1.5px solid var(--ink)}
+.idx-row{display:flex;align-items:baseline;gap:16px;padding:15px 2px;border-bottom:1px solid var(--line)}
+.idx-row .t{font-family:var(--display);font-style:italic;font-size:15px;color:var(--warm);width:26px;flex:none}
+.idx-row .n{font-family:var(--display);font-size:21px;font-weight:300;letter-spacing:-.01em}
+.idx-row .n i{font-style:italic;color:var(--warm)}
+.idx-row .pg{margin-left:auto;font-size:12px;color:var(--dim);font-variant-numeric:tabular-nums}
+.idx-foot{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--dim);border-top:1px solid var(--line);padding-top:13px}
+
+/* GONDOR PROCESS STRIP */
+.strip6{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:7mm 6mm;flex:1;margin-top:8mm;min-height:0}
+.strip6 figure{display:flex;flex-direction:column;min-height:0}
+.strip6 img{width:100%;height:100%;object-fit:cover;flex:1;min-height:0}
+.strip6 figcaption{margin-top:6px;font-family:var(--display);font-style:italic;font-size:11px;color:var(--dim);display:flex;justify-content:space-between}
+
+/* TWO SQUARES (white volumes detail) */
+.wv2{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8mm;margin-top:8mm;min-height:0;align-items:center}
+.wv2 figure{display:flex;flex-direction:column}
+.wv2 img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.wv2 figcaption{margin-top:7px;font-family:var(--display);font-style:italic;font-size:12px;color:var(--dim)}
+
+/* SINGLE big image (east hampton detail) */
+.single{flex:1;display:flex;flex-direction:column;margin-top:8mm;min-height:0}
+.single figure{flex:1;display:flex;flex-direction:column;min-height:0}
+.single img{width:100%;height:100%;object-fit:cover;flex:1;min-height:0}
+.single figcaption{margin-top:7px;font-family:var(--display);font-style:italic;font-size:12px;color:var(--dim);display:flex;justify-content:space-between}
+
+/* CLEAN CONTENT: hero + two details (no scrim, renders shown whole) */
+.content-hero{flex:1;display:flex;flex-direction:column;gap:6mm;margin-top:8mm;min-height:0}
+.ch-big{flex:1.55;display:flex;flex-direction:column;min-height:0}
+.ch-big img{width:100%;height:100%;object-fit:contain;object-position:center;flex:1;min-height:0}
+.ch-big figcaption{margin-top:6px;font-family:var(--display);font-style:italic;font-size:12px;color:var(--dim);display:flex;justify-content:space-between}
+.ch-row{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:6mm;min-height:0}
+.ch-row figure{display:flex;flex-direction:column;min-height:0}
+.ch-row img{width:100%;height:100%;object-fit:contain;object-position:center;flex:1;min-height:0}
+.ch-row figcaption{margin-top:5px;font-family:var(--display);font-style:italic;font-size:11px;color:var(--dim)}
+.duo2{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8mm;margin-top:8mm;min-height:0}
+.duo2 figure{display:flex;flex-direction:column;min-height:0}
+.duo2 img{width:100%;height:100%;object-fit:contain;object-position:center;flex:1;min-height:0}
+.duo2 figcaption{margin-top:7px;font-family:var(--display);font-style:italic;font-size:12px;color:var(--dim);display:flex;justify-content:space-between}
+
+/* PLATE: one landscape render, large & centered, even margins, subtle shadow */
+.plate-tag{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--warm)}
+.plate-img{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;margin:12px 0}
+.plate-img img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 26px 64px -42px rgba(0,0,0,.5)}
+.plate-cap{display:flex;justify-content:space-between;font-family:var(--display);font-style:italic;font-size:12.5px;color:var(--dim)}
+/* running frame bands = the "character" device, same language as the index */
+.run-top{display:flex;justify-content:space-between;align-items:baseline;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:11px}
+.run-top .sec{color:var(--warm)}
+.run-bot{display:flex;justify-content:space-between;align-items:baseline;gap:18px;border-top:1px solid var(--line);padding-top:11px;margin-top:13px;font-size:12px;color:var(--dim);font-family:var(--display);font-style:italic}
+.run-bot .pno{font-style:normal;font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--soft);flex:none}
+/* PLATE-SPLIT: square render + editorial text column (uses the width on purpose) */
+.plate-split{flex:1;display:grid;grid-template-columns:.68fr 1.32fr;gap:16mm;align-items:center;min-height:0}
+.plate-split .ptx .k{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--warm)}
+.plate-split .ptx h3{font-family:var(--display);font-weight:300;font-size:34px;line-height:1.05;letter-spacing:-.02em;margin:14px 0}
+.plate-split .ptx h3 i{font-style:italic;color:var(--warm)}
+.plate-split .ptx p{font-family:var(--display);font-style:italic;font-size:15px;color:var(--soft);max-width:72mm}
+.plate-split .ptx .cap{margin-top:22px;font-family:var(--display);font-style:italic;font-size:12px;color:var(--dim);line-height:1.5}
+.plate-split .pimg{height:100%;display:flex;align-items:center;justify-content:center;min-height:0}
+.plate-split .pimg img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 26px 64px -42px rgba(0,0,0,.5)}
+/* PAIR: two square renders side by side */
+.pair{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:12mm;align-items:center;min-height:0;margin-top:12px}
+.pair figure{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0}
+.pair img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 22px 56px -40px rgba(0,0,0,.5)}
+.pair figcaption{margin-top:10px;font-family:var(--display);font-style:italic;font-size:12px;color:var(--dim);text-align:center}
+
+/* INTERIORS GRID */
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:6mm;flex:1;margin-top:8mm;min-height:0}
+.grid6 figure{position:relative;overflow:hidden;min-height:0}
+.grid6 img{width:100%;height:100%;object-fit:cover}
+.grid6 figcaption{position:absolute;left:0;bottom:0;right:0;font-family:var(--display);font-style:italic;font-size:10.5px;color:#f3ead9;background:linear-gradient(0deg,rgba(20,16,12,.66),transparent);padding:18px 10px 7px}
+
+/* FILM */
+.film-over{left:16mm;bottom:14mm;right:96mm}
+.film-over .kick{color:#f0d4ab;text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.film-over h2{font-family:var(--display);font-weight:300;font-size:60px;line-height:1;letter-spacing:-.02em;color:#f9f4ea;margin-top:10px;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+.film-over h2 i{font-style:italic;color:#f0d4ab}
+.film-over p{font-family:var(--display);font-style:italic;font-weight:300;font-size:16px;color:#f0e8d8;margin-top:14px;max-width:150mm;text-shadow:0 1px 14px rgba(0,0,0,.6)}
+/* film CTA: watch label + notorious arrow + QR (warm, matches text width) */
+.qr{position:absolute;z-index:3;right:16mm;bottom:14mm;width:48mm;text-align:center}
+.qr .watch{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#f7efdf;text-shadow:0 1px 3px rgba(0,0,0,.85),0 2px 14px rgba(0,0,0,.8)}
+.qr .rule{width:1px;height:16px;margin:9px auto 10px;background:rgba(244,236,219,.75);box-shadow:0 0 5px rgba(0,0,0,.5)}
+.qr .panel{display:block;width:100%;background:#e8dfcc;padding:6px;border-radius:8px;box-shadow:0 12px 38px rgba(0,0,0,.55)}
+.qr .panel img{width:100%;height:auto;display:block;border-radius:3px}
+.qr .cap{margin-top:9px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#ece4d3;text-shadow:0 1px 8px rgba(0,0,0,.75)}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:78mm 1fr;gap:16mm;flex:1;align-items:center}
+.portrait{width:78mm;aspect-ratio:4/5;overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25) contrast(1.05)}
+.about h2{font-family:var(--display);font-weight:300;font-size:42px;line-height:1.02;letter-spacing:-.02em;margin-bottom:18px}
+.about h2 i{font-style:italic;color:var(--warm)}
+.about p{font-family:var(--display);font-weight:300;font-size:15.5px;line-height:1.6;color:var(--soft);margin-bottom:12px;max-width:118mm}
+.about p strong{color:var(--ink);font-weight:500}
+.stack{margin-top:20px;display:grid;grid-template-columns:repeat(3,auto);gap:13px 38px;justify-content:start}
+.stack dt{color:var(--dim);text-transform:uppercase;letter-spacing:.2em;font-size:9px;margin-bottom:3px}
+.stack dd{font-family:var(--display);font-style:italic;font-size:15px;color:var(--ink)}
+
+/* CONTACT */
+.contact{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.contact .kick{color:var(--dim);margin-bottom:24px}
+.contact h2{font-family:var(--display);font-weight:300;font-size:56px;line-height:1.05;letter-spacing:-.022em;max-width:200mm;margin-bottom:36px}
+.contact h2 i{font-style:italic;color:var(--warm)}
+.contact .mail{font-family:var(--display);font-style:italic;font-size:30px;color:var(--warm)}
+.contact .meta{margin-top:38px;display:flex;gap:24px;flex-wrap:wrap;justify-content:center;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--dim)}
+.contact .meta a,.contact .meta span{color:var(--soft);text-decoration:none}
+.contact-foot{position:absolute;left:16mm;right:16mm;bottom:11mm;display:flex;justify-content:space-between;align-items:flex-end;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);border-top:1px solid var(--line);padding-top:9px}
+</style>
+</head>
+<body>
+
+<!-- 1 · COVER -->
+<section class="page">
+  <div class="bleed" style="background-image:url('images/v6/cover-hero.jpg')"></div>
+  <div class="scrim top"></div><div class="scrim bottom"></div>
+  <div class="over cover-top">
+    <div class="cover-brand">Drew <i>Montejo</i></div>
+    <div class="cover-tag">Architectural Visualization<br>Exteriors · Lima · MMXXVI</div>
+  </div>
+  <div class="over cover-mid">
+    <div class="time">A portfolio in one imagined day</div>
+    <h1>One day<br>of <i>light</i>.</h1>
+    <div class="sub">A cinematographer of architecture.</div>
+  </div>
+  <div class="over cover-foot">
+    <span>Lima, Peru · Available worldwide</span>
+    <a href="https://drewviz.com">drewviz.com</a>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 2 · MANIFESTO / INDEX -->
+<section class="page">
+  <div class="pad">
+    <div class="idx-top"><span>Drew Montejo — Architectural Visualization</span><span>Monograph · MMXXVI</span></div>
+    <div class="man">
+      <div class="man-l">
+        <div class="man-kick">A practice in light</div>
+        <h2>Light, in all<br>its <i>hours</i>.</h2>
+        <p>I treat every render as <strong>cinematography first, marketing second</strong>. Each project here is a place caught in its own hour — golden light, high sun, first light — each one built alone and lit for the way it would actually feel.</p>
+        <p>I work alone, deliberately. <strong>Every frame is mine from clay to color</strong>: modeled in 3ds Max, rendered in Corona, finished by hand. Eight years, fifty-plus projects, one obsession — light.</p>
+      </div>
+      <div class="idx">
+        <div class="idx-head">Contents</div>
+        <div class="idx-list">
+          <div class="idx-row"><span class="t">I</span><span class="n">Golden hour · <i>East Hampton House</i></span><span class="pg">03</span></div>
+          <div class="idx-row"><span class="t">II</span><span class="n">High sun · <i>White Volumes</i></span><span class="pg">07</span></div>
+          <div class="idx-row"><span class="t">III</span><span class="n">First light · <i>The White City</i></span><span class="pg">10</span></div>
+          <div class="idx-row"><span class="t">—</span><span class="n">Indoors · <i>Selected interiors</i></span><span class="pg">12</span></div>
+          <div class="idx-row"><span class="t">—</span><span class="n">The practice · <i>About</i></span><span class="pg">13</span></div>
+          <div class="idx-row"><span class="t">—</span><span class="n">Last light · <i>Contact</i></span><span class="pg">14</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="idx-foot"><span>Lima, Peru · Available worldwide</span><span>drewviz.com</span></div>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 3 · EAST HAMPTON · opener -->
+<section class="page">
+  <div class="bleed" style="background-image:url('images/v6/easthampton-02.webp');background-position:center 42%"></div>
+  <div class="scrim top"></div><div class="scrim bottom"></div>
+  <div class="over" style="left:16mm;top:14mm"><div class="time">18:52 · Golden hour</div></div>
+  <div class="over" style="left:16mm;bottom:20mm;right:16mm">
+    <div class="name" style="font-size:60px">East Hampton <i>House</i>.</div>
+    <div class="line" style="font-size:18px;margin-top:12px;max-width:160mm">Cedar holding the last warmth; dry meadow in the foreground, poplars holding the light behind.</div>
+  </div>
+  <div class="report">
+    <span><b>Frame</b>The approach at golden hour</span><span><b>Engine</b>Corona Renderer</span>
+    <span><b>Build</b>3ds Max · Forest Pack</span><span><b>Year</b>2026</span>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 4 · EAST HAMPTON · front (plate) -->
+<section class="page">
+  <div class="pad">
+    <div class="run-top"><span class="sec">Golden hour · East Hampton House</span><span>Drew Montejo · drewviz</span></div>
+    <div class="plate-img"><img src="images/v6/easthampton-01.webp" alt=""></div>
+    <div class="run-bot"><span>Front façade, golden hour — 3ds Max · Corona Renderer · 2026</span><span class="pno">04</span></div>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 5 · EAST HAMPTON · entry (plate) -->
+<section class="page">
+  <div class="pad">
+    <div class="run-top"><span class="sec">Golden hour · East Hampton House</span><span>Drew Montejo · drewviz</span></div>
+    <div class="plate-img"><img src="images/v6/easthampton-03.webp" alt=""></div>
+    <div class="run-bot"><span>The entry, up close — cedar, glass and a corten step</span><span class="pno">05</span></div>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 6 · EAST HAMPTON · the film -->
+<section class="page">
+  <div class="bleed" style="background-image:url('images/v6/film-poster.webp')"></div>
+  <div class="scrim top"></div><div class="scrim bottom"></div>
+  <div class="over film-over">
+    <div class="kick">The film</div>
+    <h2>The <i>Last Hour</i>.</h2>
+    <p>East Hampton House, in the last hour of light. A 32-second architectural film — every frame my own render, set in motion.</p>
+  </div>
+  <a class="qr" href="https://drewviz.com">
+    <div class="watch">Watch the film</div>
+    <div class="rule"></div>
+    <span class="panel"><img src="pdf_assets/qr-site.png" alt="Scan to watch at drewviz.com"></span>
+    <div class="cap">drewviz.com</div>
+  </a>
+  <div class="grain"></div>
+</section>
+
+<!-- 7 · WHITE VOLUMES · opener -->
+<section class="page">
+  <div class="bleed" style="background-image:url('images/v6/wv-opener.jpg')"></div>
+  <div class="scrim top"></div><div class="scrim bottom"></div>
+  <div class="over" style="left:16mm;top:16mm;right:16mm">
+    <div class="time">12:06 · High sun</div>
+    <div class="name" style="font-size:66px;margin-top:16px">White <i>Volumes</i>.</div>
+    <div class="line" style="font-size:18px;margin-top:12px;max-width:150mm">White volume against open sky; the light is left to do the rest.</div>
+  </div>
+  <div class="report">
+    <span><b>Frame</b>Clerestory light, low horizon</span><span><b>Engine</b>Corona Renderer</span>
+    <span><b>Build</b>3ds Max · Forest Pack</span><span><b>Year</b>2026</span>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 8 · WHITE VOLUMES · principal (plate-split) -->
+<section class="page">
+  <div class="pad">
+    <div class="run-top"><span class="sec">High sun · White Volumes</span><span>Drew Montejo · drewviz</span></div>
+    <div class="plate-split">
+      <div class="ptx">
+        <div class="k">12:06 · High sun</div>
+        <h3>White <i>Volumes</i></h3>
+        <p>White volume against open sky; the light is left to do the rest.</p>
+        <div class="cap">Clerestory light, low horizon<br>3ds Max · Corona Renderer · 2026</div>
+      </div>
+      <div class="pimg"><img src="images/v6/white-volumes-01.webp" alt=""></div>
+    </div>
+    <div class="run-bot"><span>White Volumes — personal study</span><span class="pno">08</span></div>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 9 · WHITE VOLUMES · two studies (pair) -->
+<section class="page">
+  <div class="pad">
+    <div class="run-top"><span class="sec">High sun · White Volumes</span><span>Drew Montejo · drewviz</span></div>
+    <div class="pair">
+      <figure><img src="images/v6/white-volumes-02.webp" alt=""><figcaption>Golden gable, mist</figcaption></figure>
+      <figure><img src="images/v6/white-volumes-03.webp" alt=""><figcaption>Geometry against the horizon</figcaption></figure>
+    </div>
+    <div class="run-bot"><span>White Volumes — two studies in light</span><span class="pno">09</span></div>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 10 · WHITE CITY · opener -->
+<section class="page">
+  <div class="bleed" style="background-image:url('images/v6/gondor-cover.webp')"></div>
+  <div class="scrim top"></div><div class="scrim bottom"></div>
+  <div class="over" style="left:16mm;top:14mm"><div class="time">05:41 · First light</div></div>
+  <div class="over" style="left:16mm;bottom:20mm;right:16mm">
+    <div class="name" style="font-size:66px">The <i>White City</i>.</div>
+    <div class="line" style="font-size:18px;margin-top:12px;max-width:150mm">A city held against its own myth — built at landscape scale and lit for atmosphere.</div>
+  </div>
+  <div class="report">
+    <span><b>Frame</b>Dawn over the city</span><span><b>Engine</b>Corona Renderer</span>
+    <span><b>Build</b>3ds Max · Forest Pack · Photoshop</span><span><b>Year</b>2026</span>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 11 · WHITE CITY · process -->
+<section class="page">
+  <div class="pad">
+    <div class="chead"><span class="time">05:41</span><span class="name">The White City · <i>how the frame is built</i></span><span class="tag">Clay to final · Personal</span></div>
+    <div class="strip6">
+      <figure><img src="images/v6/gondor-stage1.webp" alt=""><figcaption><span>01</span><span>Clay massing</span></figcaption></figure>
+      <figure><img src="images/v6/gondor-stage2.webp" alt=""><figcaption><span>02</span><span>Grey study</span></figcaption></figure>
+      <figure><img src="images/v6/gondor-stage3.webp" alt=""><figcaption><span>03</span><span>Environment</span></figcaption></figure>
+      <figure><img src="images/v6/gondor-stage4.webp" alt=""><figcaption><span>04</span><span>Lighting</span></figcaption></figure>
+      <figure><img src="images/v6/gondor-stage5.webp" alt=""><figcaption><span>05</span><span>Atmosphere</span></figcaption></figure>
+      <figure><img src="images/v6/gondor-stage6.webp" alt=""><figcaption><span>06</span><span>Final composite</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 10 · INTERIORS RANGE -->
+<section class="page">
+  <div class="pad">
+    <div class="chead"><span class="time">After dark</span><span class="name">Indoors. <i>Selected interiors</i>.</span><span class="tag">Residential &amp; hospitality · Client work</span></div>
+    <div class="cline">Luxury brand work across watchmaking, retail and beauty under NDA — a selection of residential and hospitality interiors shown here.</div>
+    <div class="grid6">
+      <figure><img src="images/javier-living-fireplace.webp" alt=""><figcaption>Living, fireplace</figcaption></figure>
+      <figure><img src="images/javier-living-pool.webp" alt=""><figcaption>Living to pool</figcaption></figure>
+      <figure><img src="images/vanessa-open-living.webp" alt=""><figcaption>Open living</figcaption></figure>
+      <figure><img src="images/vanessa-master-suite.webp" alt=""><figcaption>Master suite</figcaption></figure>
+      <figure><img src="images/vanessa-foyer-wine.webp" alt=""><figcaption>Foyer &amp; wine</figcaption></figure>
+      <figure><img src="images/japandi-living.webp" alt=""><figcaption>Japandi living</figcaption></figure>
+    </div>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 11 · ABOUT -->
+<section class="page">
+  <div class="pad">
+    <div class="chead"><span class="time">19:58</span><span class="name">Dusk. <i>The practice</i>.</span><span class="tag">About</span></div>
+    <div class="about">
+      <div class="portrait"><img src="images/andrew-portrait.webp" alt="Andrew Montejo"></div>
+      <div>
+        <h2>Eight years <i>quiet</i>.</h2>
+        <p>I am <strong>Andrew Montejo</strong>, an architect and visualization artist in Lima. For eight years I have worked with architects, developers and design studios, building a discipline that treats every render as cinematography first.</p>
+        <p>Recent work covers luxury brands across watchmaking, retail and beauty under NDA, alongside residential, hospitality and landscape projects. I work alone, deliberately — <strong>every frame is mine from clay to color</strong>.</p>
+        <dl class="stack">
+          <div><dt>Modeling</dt><dd>3ds Max</dd></div>
+          <div><dt>Render</dt><dd>Corona · V-Ray</dd></div>
+          <div><dt>Scatter</dt><dd>Forest Pack · RailClone</dd></div>
+          <div><dt>Post</dt><dd>Photoshop · After Effects</dd></div>
+          <div><dt>Experience</dt><dd>8 yrs · 50+ projects</dd></div>
+          <div><dt>Languages</dt><dd>Español · English</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="grain"></div>
+</section>
+
+<!-- 12 · CONTACT -->
+<section class="page">
+  <div class="pad">
+    <div class="contact">
+      <div class="kick">21:13 · Last light</div>
+      <h2>When the light goes,<br>the windows <i>stay on</i>.</h2>
+      <a class="mail" href="mailto:drew.viz.pe@gmail.com">drew.viz.pe@gmail.com</a>
+      <div class="meta">
+        <span>Lima, Peru · GMT-5</span>
+        <a href="https://drewviz.com">drewviz.com</a>
+        <a href="https://www.behance.net/drewstu">Behance</a>
+        <a href="https://www.linkedin.com/in/callmedru/">LinkedIn</a>
+        <a href="https://www.instagram.com/drew.stud/">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="contact-foot"><span>Drew Montejo · drewviz</span><span>One day of light · MMXXVI</span></div>
+  <div class="grain"></div>
+</section>
+
+</body>
+</html>

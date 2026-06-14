@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Developments — Drew Montejo · Architectural Visualization</title>
+<meta name="description" content="Development and client work by Drew Montejo — residential complexes, towers and houses delivered for architects and developers. 3ds Max + Corona Renderer. Lima, Peru — available worldwide.">
+<meta name="author" content="Andrew Montejo — drewviz">
+<link rel="canonical" href="https://drewviz.com/selected-work.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Drew Montejo — Developments & client work">
+<meta property="og:description" content="Residential complexes, towers and houses delivered for architects and developers. 3ds Max + Corona Renderer.">
+<meta property="og:image" content="https://drewviz.com/images/astete-fachada.webp">
+<meta property="og:url" content="https://drewviz.com/selected-work.html">
+<meta property="og:type" content="website">
+
+<meta name="theme-color" content="#ebe6d9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ebe6d9'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-style='italic' font-size='38' fill='%23272420' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #ebe6d9;
+    --bg-warm: #e0dac9;
+    --text: #272420;
+    --text-soft: #5d584d;
+    --text-dim: #67635a;
+    --accent: #46566c;
+    --rule: rgba(39,36,32,0.16);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Archivo', -apple-system, sans-serif;
+    --ease: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ━━━━━ FILM GRAIN ━━━━━ */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+  }
+  body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:140;
+    background:radial-gradient(130% 100% at 50% 45%, transparent 62%, rgba(60,54,44,0.10) 100%); }
+  ::selection{ background:rgba(70,86,108,0.28); color:#fff; }
+
+  /* ━━━━━ SCROLL PROGRESS ━━━━━ */
+  .scroll-bar {
+    position: fixed; top: 0; left: 0;
+    height: 2px; width: 0%;
+    background: linear-gradient(90deg,#46566c,#8fa3bd);
+    z-index: 300;
+    transition: width 100ms linear;
+  }
+
+  /* ━━━━━ TOP NAV ━━━━━ */
+  .top-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 36px 60px 0;
+    font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--text-soft);
+  }
+  .brand { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--text); letter-spacing: 0.02em; text-transform: none; text-decoration: none; }
+  .brand em { font-style: italic; color: var(--accent); }
+  .top-nav .right { display: flex; gap: 32px; }
+  .top-nav a { color: var(--text-soft); text-decoration: none; transition: color 200ms var(--ease); position: relative; }
+  .top-nav a:hover { color: var(--text); }
+  .top-nav a.current { color: var(--accent); }
+  .top-nav .right a::after { content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px; background:var(--accent); transition:width 420ms cubic-bezier(0.16,1,0.3,1); }
+  .top-nav .right a:hover::after { width:100%; }
+
+  /* ━━━━━ PAGE HEADER ━━━━━ */
+  .page-head {
+    padding: 14vh 60px 6vh;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .page-eyebrow {
+    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 24px;
+  }
+  .page-title {
+    font-family: var(--serif); font-weight: 300;
+    font-size: clamp(44px, 6vw, 96px);
+    line-height: 0.96; letter-spacing: -0.025em;
+    margin-bottom: 26px;
+  }
+  .page-title em { font-style: italic; color: var(--accent); }
+  .page-prose {
+    font-family: var(--serif); font-style: italic;
+    font-size: 18px; line-height: 1.55;
+    color: var(--text-soft); font-weight: 300;
+    max-width: 560px;
+  }
+  .page-prose strong { color: var(--text); font-weight: 500; font-style: normal; }
+
+  /* ━━━━━ PROJECT SECTIONS ━━━━━ */
+  .opener {
+    padding: 7vh 60px 1vh;
+    border-top: 1px solid rgba(196,130,90,0.16);
+  }
+  .opener-num {
+    font-size: 16px; color: #67635a;
+    letter-spacing: 0.26em; text-transform: uppercase;
+    margin-bottom: 8px;
+    font-family: var(--sans);
+  }
+  .opener-title {
+    font-family: var(--serif); font-weight: 300;
+    font-size: clamp(30px, 3.6vw, 52px);
+    line-height: 1; letter-spacing: -0.03em;
+    margin-bottom: 10px;
+  }
+  .opener-title em { font-style: italic; color: var(--accent); }
+  .opener-tag {
+    font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--text-soft);
+  }
+
+  .chapter { padding: 4vh 60px 4vh; max-width: 1500px; margin: 0 auto; position: relative; }
+  .chapter-image { width: 100%; margin-bottom: 22px; }
+  .chapter-image img {
+    max-height: 86vh; width: auto; max-width: 100%; height: auto;
+    margin-left: auto; margin-right: auto; display: block;
+    box-shadow: 0 24px 60px -40px rgba(35,30,24,0.35);
+  }
+  .plate-caption {
+    display: grid;
+    grid-template-columns: 100px 1fr 240px;
+    gap: 40px; align-items: start;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px; letter-spacing: 0.06em;
+    color: #6b665a;
+  }
+  .plate-label {
+    font-family: var(--serif); font-style: italic;
+    color: #46566c;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .plate-body em { font-style: italic; font-family: var(--serif); font-size: 14px; color: #514d44; }
+  .plate-meta { text-align: right; }
+  .plate-meta strong { color: var(--text-soft); font-weight: 500; }
+
+  .alt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 22px; }
+  /* altura uniforme por fila: se recorta el sobrante (anclado arriba), el click abre la imagen completa */
+  .alt-item img {
+    width: 100%; height: clamp(260px, 34vw, 470px); object-fit: cover; object-position: center top;
+    display: block;
+    transition: transform 1.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  @media (max-width: 900px) { .alt-item img { height: auto; max-height: 58vh; object-fit: contain; } }
+  .alt-item:hover img { transform: scale(1.035); }
+  .alt-item .plate-mini {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-top: 10px; font-size: 12px;
+    color: #6b665a;
+    font-family: var(--serif); font-style: italic;
+  }
+  .alt-item .plate-mini b {
+    color: #46566c;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-family: var(--serif);
+  }
+
+  /* ━━━━━ CROSS LINKS ━━━━━ */
+  .back-band {
+    padding: 12vh 60px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+  }
+  .back-band .eyebrow { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
+  .back-band h3 { font-family: var(--serif); font-weight: 300; font-size: clamp(34px, 4.5vw, 70px); line-height: 1.04; letter-spacing: -0.02em; margin-bottom: 40px; }
+  .back-band h3 em { font-style: italic; color: var(--accent); }
+  .back-links { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+  .back-link {
+    display: inline-block;
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    border: 1px solid var(--rule);
+    padding: 18px 44px;
+    transition: border-color 300ms var(--ease), color 300ms var(--ease);
+  }
+  .back-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ━━━━━ CONTACT STRIP ━━━━━ */
+  .contact { padding: 12vh 60px 9vh; text-align: center; border-top: 1px solid var(--rule); max-width: 1100px; margin: 0 auto; }
+  .contact-eyebrow { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
+  .contact h3 { font-family: var(--serif); font-weight: 300; font-size: clamp(40px, 5.5vw, 96px); line-height: 1.02; letter-spacing: -0.025em; margin-bottom: 42px; }
+  .contact h3 em { font-style: italic; color: var(--accent); }
+  .contact-email { font-family: var(--serif); font-style: italic; font-size: clamp(22px, 2.5vw, 32px); color: var(--text); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 4px; transition: border-color 200ms var(--ease), color 200ms var(--ease); }
+  .contact-email:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-meta { margin-top: 56px; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dim); display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+  .contact-meta a { color: var(--text-soft); text-decoration: none; transition: color 200ms var(--ease); }
+  .contact-meta a:hover { color: var(--text); }
+
+  .footer-final { text-align: center; padding: 28px; font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--text-dim); border-top: 1px solid var(--rule); }
+
+  /* ━━━━━ SCROLL REVEAL ━━━━━ */
+  .reveal { opacity: 0; transform: translateY(34px) scale(1.012); transition: opacity 1200ms cubic-bezier(0.16,1,0.3,1), transform 1200ms cubic-bezier(0.16,1,0.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .top-nav, .page-head, .chapter, .opener, .back-band, .contact { padding-left: 24px; padding-right: 24px; }
+    .top-nav { padding-top: 24px; }
+    .top-nav .right { gap: 6px 14px; flex-wrap: wrap; justify-content: flex-end; } .top-nav .right a { padding: 10px 4px; display: inline-block; }
+    .plate-caption { grid-template-columns: 1fr; gap: 12px; }
+    .plate-meta { text-align: left; }
+    .alt-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,*::before,*::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  /* ━━━ Lightbox ━━━ */
+  .chapter-image img, .alt-item img { cursor: zoom-in; }
+  .lb { position: fixed; inset: 0; z-index: 400; background: rgba(8,7,6,0.96); display: none; align-items: center; justify-content: center; }
+  .lb.open { display: flex; }
+  .lb img { max-width: 94vw; max-height: 90vh; width: auto; height: auto; box-shadow: 0 40px 120px -40px rgba(0,0,0,0.9); }
+  .lb-cap { position: absolute; bottom: 26px; left: 0; right: 0; text-align: center; font-family: var(--serif); font-style: italic; font-size: 14px; color: #6b665a; letter-spacing: 0.04em; }
+  .lb-x { position: absolute; top: 22px; right: 30px; font-family: var(--sans); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #9e9080; cursor: pointer; background: none; border: none; padding: 10px; }
+  .lb-x:hover { color: var(--accent); }
+  .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); font-family: var(--serif); font-size: 34px; color: #9e9080; cursor: pointer; background: none; border: none; padding: 18px; line-height: 1; }
+  .lb-nav:hover { color: var(--accent); }
+  .lb-prev { left: 14px; } .lb-next { right: 14px; }
+</style>
+</head>
+<body>
+
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- ━━━━━ NAV ━━━━━ -->
+<nav class="top-nav">
+  <a class="brand" href="index.html">Drew <em>Montejo</em></a>
+  <div class="right">
+    <a href="index.html">Exteriors</a>
+    <a href="interiors.html">Interiors</a>
+    <a href="selected-work.html" class="current">Developments</a>
+    <a href="index.html#practice">About</a>
+    <a href="index.html#night">Contact</a>
+  </div>
+</nav>
+
+<!-- ━━━━━ HEADER ━━━━━ -->
+<header class="page-head">
+  <div class="page-eyebrow reveal">— Developments &amp; client work</div>
+  <h1 class="page-title reveal">Built to <em>sell</em>, drawn to last.</h1>
+  <p class="page-prose reveal"><strong>Residential complexes, towers and houses</strong> delivered for architects and developers — the commercial side of the practice, where deadlines are real and every frame still has to earn its light.</p>
+</header>
+
+<!-- 01 · ASTETE PARK -->
+<section class="opener"><div class="opener-num reveal">01 / RESIDENTIAL DEVELOPMENT · NDA</div><h2 class="opener-title reveal">Astete <em>Park</em>.</h2><div class="opener-tag reveal">Premium residential development · Lima</div></section>
+<section class="chapter">
+<div class="chapter-image reveal"><img src="images/astete-fachada.webp" alt="Astete Park — facade at dusk"></div>
+<div class="plate-caption reveal"><div class="plate-label">Hero frame</div><div class="plate-body"><em>The facade at dusk. Amenity interiors from this project live in the Interiors chapter.</em></div><div class="plate-meta"><strong>Astete Park</strong></div></div>
+</section>
+
+<!-- 02 · LOS TANGLEOS -->
+<section class="opener"><div class="opener-num reveal">02 / PRIVATE HOUSE · NDA</div><h2 class="opener-title reveal">Los <em>Tangleos</em>.</h2><div class="opener-tag reveal">Residential house &amp; terrace</div></section>
+<section class="chapter">
+<div class="chapter-image reveal"><img src="images/los-tangleos-fachada.webp" alt="Los Tangleos — house facade against the hillside"></div>
+<div class="plate-caption reveal"><div class="plate-label">Hero frame</div><div class="plate-body"><em>The house against the hillside.</em></div><div class="plate-meta"><strong>Los Tangleos</strong></div></div>
+<div class="alt-grid reveal" style="margin-top:18px">
+<div class="alt-item"><img src="images/tangleos-terraza.webp" alt="Los Tangleos — terrace"><div class="plate-mini"><b></b><em>Terrace</em></div></div>
+<div class="alt-item"><img src="images/tangleos-interior.webp" alt="Los Tangleos — interior"><div class="plate-mini"><b></b><em>Interior</em></div></div>
+</div></section>
+
+<!-- 03 · SOL NAIXENT -->
+<section class="opener"><div class="opener-num reveal">03 / RESIDENTIAL COMPLEX · NDA</div><h2 class="opener-title reveal">Sol <em>Naixent</em>.</h2><div class="opener-tag reveal">Mediterranean residential development</div></section>
+<section class="chapter">
+<div class="chapter-image reveal"><img src="images/sol-naixet-aerial.webp" alt="Sol Naixent — aerial view of the complex"></div>
+<div class="plate-caption reveal"><div class="plate-label">Hero frame</div><div class="plate-body"><em>The complex from above, terraced against the coast.</em></div><div class="plate-meta"><strong>Sol Naixent</strong></div></div>
+<div class="alt-grid reveal" style="margin-top:18px">
+<div class="alt-item"><img src="images/sol-naixet-living.webp" alt="Sol Naixent — living interior"><div class="plate-mini"><b></b><em>Living, unit interior</em></div></div>
+<div class="alt-item"><img src="images/sol-naixet-bedroom.webp" alt="Sol Naixent — bedroom"><div class="plate-mini"><b></b><em>Bedroom, unit interior</em></div></div>
+</div></section>
+
+<!-- 04 · TOMÁS MARSANO -->
+<section class="opener"><div class="opener-num reveal">04 / URBAN RESIDENTIAL · NDA</div><h2 class="opener-title reveal">Tomás <em>Marsano</em>.</h2><div class="opener-tag reveal">Residential tower · Lima</div></section>
+<section class="chapter">
+<div class="alt-grid reveal">
+<div class="alt-item"><img src="images/tomas-marsano-malecon.webp" alt="Tomás Marsano — tower from the malecón"><div class="plate-mini"><b></b><em>From the malecón</em></div></div>
+<div class="alt-item"><img src="images/tomas-marsano-night.webp" alt="Tomás Marsano — tower at night"><div class="plate-mini"><b></b><em>At night</em></div></div>
+</div></section>
+
+<!-- 05 · KAISERGARTEN -->
+<section class="opener"><div class="opener-num reveal">05 / TOWER · NDA</div><h2 class="opener-title reveal">Kaisergarten <em>tower</em>.</h2><div class="opener-tag reveal">High-rise residential</div></section>
+<section class="chapter">
+<div class="chapter-image reveal"><img src="images/kaisergarten.webp" alt="Kaisergarten Tower"></div>
+<div class="plate-caption reveal"><div class="plate-label">Hero frame</div><div class="plate-body"><em>The tower in its skyline.</em></div><div class="plate-meta"><strong>Kaisergarten Tower</strong></div></div>
+</section>
+
+<!-- ━━━━━ CROSS LINKS ━━━━━ -->
+<section class="back-band">
+  <div class="reveal">
+    <div class="eyebrow">— Keep looking</div>
+    <h3>More of the <em>practice</em>.</h3>
+    <div class="back-links">
+      <a class="back-link" href="index.html">&larr; Exteriors</a>
+      <a class="back-link" href="interiors.html">Interiors &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━ CONTACT ━━━━━ -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <div class="contact-eyebrow">Quiet inbox · Patient projects</div>
+    <h3>Let's make one <em>frame</em>.</h3>
+    <a class="contact-email" href="mailto:drew.viz.pe@gmail.com">drew.viz.pe@gmail.com</a>
+    <div class="contact-meta">
+      <span>Lima, Peru · GMT-5</span>
+      <a href="https://www.behance.net/drewstu" target="_blank" rel="noopener">Behance</a>
+      <a href="https://www.linkedin.com/in/callmedru/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/drew.stud/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-final">Drew Montejo · drewviz · 2026</footer>
+
+<!-- ━━━━━ LIGHTBOX ━━━━━ -->
+<div class="lb" id="lb" role="dialog" aria-label="Image viewer">
+  <button class="lb-x" id="lbX">Close</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&larr;</button>
+  <img id="lbImg" alt="">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&rarr;</button>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Scroll progress bar
+  const bar = document.getElementById('scrollBar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+
+  // Lazy images
+  document.querySelectorAll('img').forEach((im, i) => {
+    if (i > 0) { im.loading = 'lazy'; }
+    im.decoding = 'async';
+  });
+
+  // ━━━ Lightbox ━━━
+  (() => {
+    const gallery = [...document.querySelectorAll('.chapter-image img, .alt-item img')];
+    const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+    let idx = 0;
+    const capFor = (im) => {
+      const mini = im.closest('.alt-item')?.querySelector('.plate-mini em');
+      if (mini) return mini.textContent;
+      const cap = im.closest('.chapter')?.querySelector('.plate-body em');
+      return cap ? cap.textContent : (im.alt || '');
+    };
+    const show = (i) => {
+      idx = (i + gallery.length) % gallery.length;
+      lbImg.src = gallery[idx].src;
+      lbCap.textContent = capFor(gallery[idx]);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+    gallery.forEach((im, i) => im.addEventListener('click', () => show(i)));
+    document.getElementById('lbX').addEventListener('click', close);
+    document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); show(idx - 1); });
+    document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); show(idx + 1); });
+    lb.addEventListener('click', e => { if (e.target === lb || e.target === lbImg) close(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(idx - 1);
+      if (e.key === 'ArrowRight') show(idx + 1);
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DREW.VIZ | Architectural Visualization Studio</title>
+  <meta name="description" content="High-end architectural visualization by Drew.Viz. Photorealistic renders, immersive 360° panoramas and cinematic animations for luxury residential, hospitality and commercial projects worldwide. Based in Lima, Peru.">
+  <meta name="keywords" content="architectural visualization, 3D rendering, archviz, Corona Renderer, VRay, luxury residential, hospitality renders, interior design, exterior render, 360 panorama, architectural animation, 3ds Max">
+  <meta name="author" content="Andrew Montejo — Drew.Viz">
+  <link rel="canonical" href="https://drewviz.com">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DREW.VIZ | Architectural Visualization Studio">
+  <meta property="og:description" content="Photorealistic renders, immersive 360° panoramas and cinematic animations for luxury residential, hospitality and commercial projects.">
+  <meta property="og:image" content="https://drewviz.com/images/gondor-05-final.webp">
+  <meta property="og:url" content="https://drewviz.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DREW.VIZ | Architectural Visualization Studio">
+  <meta name="twitter:description" content="Photorealistic renders, immersive 360° panoramas and cinematic animations for luxury residential, hospitality and commercial projects.">
+  <meta name="twitter:image" content="https://drewviz.com/images/gondor-05-final.webp">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DREW.VIZ — Architectural Visualization Studio",
+    "description": "High-end architectural visualization: photorealistic renders, 360° panoramas and cinematic animations for luxury residential, hospitality and commercial projects worldwide.",
+    "url": "https://drewviz.com",
+    "image": "https://drewviz.com/images/gondor-05-final.webp",
+    "telephone": "+51970773849",
+    "email": "Drew.viz.pe@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lima",
+      "addressCountry": "PE"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Andrew Montejo",
+      "jobTitle": "Architectural Visualization Artist"
+    },
+    "areaServed": "Worldwide",
+    "serviceType": ["Architectural Visualization", "3D Rendering", "360 Panorama", "Architectural Animation"],
+    "priceRange": "$$"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Pannellum 360 Viewer -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+</head>
+<body>
+
+  <!-- Skip to content (accessibility) -->
+  <a href="#portfolio" class="skip-link">Skip to content</a>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav">
+    <a href="#" class="nav__logo">DREW<span>.VIZ</span></a>
+    <ul class="nav__links">
+      <li><a href="#portfolio" data-i18n="nav.work">Work</a></li>
+      <li><a href="#creative" data-i18n="nav.process">Process</a></li>
+      <li><a href="#pano360">360°</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">ES</button>
+    <div class="nav__hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- ========== HERO — Video Background ========== -->
+  <section class="hero" id="home">
+    <div class="hero__video-bg">
+      <video autoplay muted loop playsinline poster="images/hero-poster.webp">
+        <source src="videos/dolly-in.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="particles" id="particles"></div>
+    <div class="hero__content">
+      <span class="hero__label" data-i18n="hero.label">Architectural Visualization Studio</span>
+      <h1 class="hero__title" data-i18n="hero.title" data-i18n-html="true">Architectural <strong>narratives</strong><br>in light and form</h1>
+      <p class="hero__desc" data-i18n="hero.desc">
+        Photorealistic renders, immersive 360° experiences and cinematic
+        animations for luxury residential, hospitality and commercial projects worldwide.
+      </p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn btn--primary" data-i18n="hero.cta1">Request a Quote</a>
+        <a href="#portfolio" class="btn btn--outline" data-i18n="hero.cta2">View Work</a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span data-i18n="hero.scroll">Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFOLIO ========== -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label" data-i18n="portfolio.label">Portfolio</span>
+        <h2 class="section__title" data-i18n="portfolio.title" data-i18n-html="true">Selected <strong>Projects</strong></h2>
+        <p class="section__subtitle" data-i18n="portfolio.subtitle">A curated selection of architectural visualizations across residential, commercial, and hospitality projects.</p>
+      </div>
+
+      <div class="portfolio__filter reveal">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter.all">All</button>
+        <button class="filter-btn" data-filter="interior" data-i18n="filter.interior">Interior</button>
+        <button class="filter-btn" data-filter="exterior" data-i18n="filter.exterior">Exterior</button>
+        <button class="filter-btn" data-filter="commercial" data-i18n="filter.commercial">Commercial</button>
+        <button class="filter-btn" data-filter="creative" data-i18n="filter.creative">Creative</button>
+      </div>
+
+      <div class="gallery reveal">
+        <!-- HERO: Javier — luxury hospitality vibe -->
+        <div class="gallery__item gallery__item--wide" data-category="interior">
+          <img src="images/javier-living-fireplace.webp" alt="Javier Residence Living with Fireplace" loading="lazy">
+          <div class="gallery__overlay"><h3>Javier Residence — Living</h3><p data-i18n="gallery.javier.fireplace.desc">Luxury Residential · Fireplace &amp; Stone Wall</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/javier-master-bath.webp" alt="Javier Residence Master Bath" loading="lazy">
+          <div class="gallery__overlay"><h3>Javier — Master Bath</h3><p data-i18n="gallery.javier.bath.desc">Stone &amp; Travertine · Spa Atmosphere</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="exterior">
+          <img src="images/kaisergarten.webp" alt="Kaisergarten Tower at Dusk" loading="lazy">
+          <div class="gallery__overlay"><h3>Kaisergarten Tower</h3><p data-i18n="gallery.kaisergarten.desc">Luxury Residential Exterior</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/javier-living-pool.webp" alt="Javier Residence Living with Pool View" loading="lazy">
+          <div class="gallery__overlay"><h3>Javier — Living with Pool View</h3><p data-i18n="gallery.javier.pool.desc">Indoor-Outdoor Connection</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/vanessa-open-living.webp" alt="Vanessa Open Living and Dining" loading="lazy">
+          <div class="gallery__overlay"><h3>Vanessa — Open Living &amp; Dining</h3><p data-i18n="gallery.vanessa.living.desc">Live-Edge Table · Curated Lighting</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="interior">
+          <img src="images/erika-kitchen.webp" alt="Erika's Kitchen" loading="lazy">
+          <div class="gallery__overlay"><h3>Erika's Kitchen</h3><p data-i18n="gallery.erika.desc">Natural Light Study</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/vanessa-master-suite.webp" alt="Vanessa Master Suite" loading="lazy">
+          <div class="gallery__overlay"><h3>Vanessa — Master Suite</h3><p data-i18n="gallery.vanessa.suite.desc">Textured Headboard · Warm Ambient</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/javier-powder-room.webp" alt="Javier Powder Room" loading="lazy">
+          <div class="gallery__overlay"><h3>Javier — Powder Room</h3><p data-i18n="gallery.javier.powder.desc">Emerald Tile · Brass Accents</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="interior">
+          <img src="images/japandi-living.webp" alt="Japandi Living Room" loading="lazy">
+          <div class="gallery__overlay"><h3>Japandi Living</h3><p data-i18n="gallery.japandi.desc">Warm Minimalism</p></div>
+        </div>
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/astete-lobby.webp" alt="Astete Park Lobby" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Lobby</h3><p data-i18n="gallery.astete.lobby.desc">Premium Common Areas</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/rustic-kitchen.webp" alt="Rustic Kitchen" loading="lazy">
+          <div class="gallery__overlay"><h3 data-i18n="gallery.rustic.title">Rustic Kitchen</h3><p data-i18n="gallery.rustic.desc">Natural Materials</p></div>
+        </div>
+
+        <div class="gallery__item gallery__item--wide" data-category="interior">
+          <img src="images/tangleos-terraza.webp" alt="Los Tangleos Terrace" loading="lazy">
+          <div class="gallery__overlay"><h3>Los Tangleos — Terrace</h3><p data-i18n="gallery.tangleos.terrace.desc">Luxury Outdoor Living</p></div>
+        </div>
+        <div class="gallery__item" data-category="exterior">
+          <img src="images/astete-fachada.webp" alt="Astete Park Facade" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park</h3><p data-i18n="gallery.astete.fachada.desc">Residential Building</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="interior">
+          <img src="images/cocina-liblab.webp" alt="LibLab Kitchen" loading="lazy">
+          <div class="gallery__overlay"><h3>LibLab Kitchen</h3><p data-i18n="gallery.liblab.desc">Modern Residential</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/sala-dulce.webp" alt="Soft Light Living Room" loading="lazy">
+          <div class="gallery__overlay"><h3 data-i18n="gallery.softlight.title">Soft Light Living</h3><p data-i18n="gallery.softlight.desc">Minimalist Interior</p></div>
+        </div>
+        <div class="gallery__item" data-category="exterior">
+          <img src="images/tomas-marsano-night.webp" alt="Tomas Marsano Night" loading="lazy">
+          <div class="gallery__overlay"><h3>Tomas Marsano</h3><p data-i18n="gallery.marsano.night.desc">Night View</p></div>
+        </div>
+
+        <div class="gallery__item gallery__item--wide" data-category="interior">
+          <img src="images/depto1-living.webp" alt="Oceanview Apartment" loading="lazy">
+          <div class="gallery__overlay"><h3 data-i18n="gallery.oceanview.title">Oceanview Apartment</h3><p data-i18n="gallery.oceanview.desc">Modern Living</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/mueble-naranja.webp" alt="Terracotta Living" loading="lazy">
+          <div class="gallery__overlay"><h3 data-i18n="gallery.terracotta.title">Terracotta Living</h3><p data-i18n="gallery.terracotta.desc">Warm Palette</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/restaurant-blue.webp" alt="Blue Lounge Restaurant" loading="lazy">
+          <div class="gallery__overlay"><h3 data-i18n="gallery.bluelounge.title">Blue Lounge</h3><p data-i18n="gallery.bluelounge.desc">Restaurant Interior</p></div>
+        </div>
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/desayunador-stripes.webp" alt="Striped Breakfast Room" loading="lazy">
+          <div class="gallery__overlay"><h3 data-i18n="gallery.striped.title">Striped Elegance</h3><p data-i18n="gallery.striped.desc">Hospitality Interior</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/tangleos-interior.webp" alt="Los Tangleos Interior" loading="lazy">
+          <div class="gallery__overlay"><h3>Los Tangleos</h3><p data-i18n="gallery.tangleos.interior.desc">Industrial Modern</p></div>
+        </div>
+
+        <div class="gallery__item" data-category="exterior">
+          <img src="images/chachapoyas-frontal.webp" alt="Chachapoyas Building" loading="lazy">
+          <div class="gallery__overlay"><h3>Chachapoyas</h3><p data-i18n="gallery.chachapoyas.desc">Residential Building</p></div>
+        </div>
+        <div class="gallery__item gallery__item--wide" data-category="exterior">
+          <img src="images/los-tangleos-fachada.webp" alt="Los Tangleos Facade" loading="lazy">
+          <div class="gallery__overlay"><h3>Los Tangleos</h3><p data-i18n="gallery.tangleos.fachada.desc">Luxury House — Facade</p></div>
+        </div>
+
+        <!-- NEW: Astete Park interiors -->
+        <div class="gallery__item" data-category="interior">
+          <img src="images/astete-kitchen.webp" alt="Astete Park Kitchen" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Kitchen</h3><p data-i18n="gallery.astete.kitchen.desc">Modern Residential</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/astete-bathroom.webp" alt="Astete Park Bathroom" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Bathroom</h3><p data-i18n="gallery.astete.bathroom.desc">Luxury Finishes</p></div>
+        </div>
+
+        <!-- NEW: Astete Park common areas -->
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/astete-coworking.webp" alt="Astete Park Coworking" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Coworking</h3><p data-i18n="gallery.astete.coworking.desc">Premium Amenities</p></div>
+        </div>
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/astete-gym.webp" alt="Astete Park Gym" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Gym</h3><p data-i18n="gallery.astete.gym.desc">Residential Amenities</p></div>
+        </div>
+        <div class="gallery__item gallery__item--wide" data-category="commercial">
+          <img src="images/astete-gourmet.webp" alt="Astete Park Gourmet Area" loading="lazy">
+          <div class="gallery__overlay"><h3>Astete Park — Gourmet</h3><p data-i18n="gallery.astete.gourmet.desc">Social Area</p></div>
+        </div>
+
+        <!-- NEW: Oficina Emilio -->
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/oficina-emilio.webp" alt="Office Design" loading="lazy">
+          <div class="gallery__overlay"><h3 data-i18n="gallery.oficina.title">Executive Office</h3><p data-i18n="gallery.oficina.desc">Corporate Interior</p></div>
+        </div>
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/oficina-lounge.webp" alt="Office Lounge" loading="lazy">
+          <div class="gallery__overlay"><h3 data-i18n="gallery.lounge.title">Office Lounge</h3><p data-i18n="gallery.lounge.desc">Corporate Relaxation Area</p></div>
+        </div>
+
+        <!-- NEW: Chachapoyas Lobby -->
+        <div class="gallery__item" data-category="commercial">
+          <img src="images/chachapoyas-lobby.webp" alt="Chachapoyas Lobby" loading="lazy">
+          <div class="gallery__overlay"><h3>Chachapoyas — Lobby</h3><p data-i18n="gallery.chachapoyas.lobby.desc">Residential Building</p></div>
+        </div>
+
+        <!-- NEW: Sol Naixet -->
+        <div class="gallery__item gallery__item--wide" data-category="exterior">
+          <img src="images/sol-naixet-aerial.webp" alt="Sol Naixet Aerial View" loading="lazy">
+          <div class="gallery__overlay"><h3>Sol Naixet</h3><p data-i18n="gallery.solnaixet.aerial.desc">Aerial View — Residential Complex</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/sol-naixet-living.webp" alt="Sol Naixet Living Room" loading="lazy">
+          <div class="gallery__overlay"><h3>Sol Naixet — Living</h3><p data-i18n="gallery.solnaixet.living.desc">Ground Floor Apartment</p></div>
+        </div>
+        <div class="gallery__item" data-category="interior">
+          <img src="images/sol-naixet-bedroom.webp" alt="Sol Naixet Master Bedroom" loading="lazy">
+          <div class="gallery__overlay"><h3>Sol Naixet — Bedroom</h3><p data-i18n="gallery.solnaixet.bedroom.desc">Master Suite</p></div>
+        </div>
+
+        <!-- NEW: Tomas Marsano -->
+        <div class="gallery__item" data-category="exterior">
+          <img src="images/tomas-marsano-malecon.webp" alt="Malecon Costa Sur" loading="lazy">
+          <div class="gallery__overlay"><h3>Malecon Costa Sur</h3><p data-i18n="gallery.malecon.desc">Coastal Residential</p></div>
+        </div>
+
+        <!-- CREATIVE: cinematic showpiece -->
+        <div class="gallery__item gallery__item--wide" data-category="creative">
+          <img src="images/gondor-05-final.webp" alt="The White City — Cinematic Environment Study" loading="lazy">
+          <div class="gallery__overlay"><h3>The White City</h3><p data-i18n="gallery.gondor.desc">Cinematic Environment Study · 3ds Max &amp; Corona</p></div>
+        </div>
+      </div>
+
+      <div class="section__cta reveal">
+        <a href="#contact" class="btn btn--primary" data-i18n="portfolio.cta1">Request a Quote</a>
+        <a href="#creative" class="btn btn--outline" data-i18n="portfolio.cta2">See My Process</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN PROCESS ========== -->
+  <section class="section section--alt" id="creative">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label" data-i18n="process.label">Workflow</span>
+        <h2 class="section__title" data-i18n="process.title" data-i18n-html="true">Design <strong>Process</strong></h2>
+        <p class="section__subtitle" data-i18n="process.subtitle">From raw geometry to cinematic final render — a step-by-step look at how I build photorealistic scenes. Project: Gondor — The White City.</p>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="timeline__item">
+          <div class="timeline__marker">
+            <span class="timeline__num">01</span>
+          </div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/gondor-01-clay.webp" alt="Gondor - Clay Render" loading="lazy">
+            </div>
+            <div class="timeline__info">
+              <h3 data-i18n="process.step1.title">Clay Model</h3>
+              <p data-i18n="process.step1.desc">Base geometry and massing. Pure 3D modeling without materials — focusing on proportions, scale, and architectural detail.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__marker">
+            <span class="timeline__num">02</span>
+          </div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/gondor-02-vegetation.webp" alt="Gondor - Vegetation Pass" loading="lazy">
+            </div>
+            <div class="timeline__info">
+              <h3 data-i18n="process.step2.title">Vegetation</h3>
+              <p data-i18n="process.step2.desc">Adding organic elements — trees, grass, ground cover. Integrating nature with the built environment to create realism.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__marker">
+            <span class="timeline__num">03</span>
+          </div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/gondor-03-environment.webp" alt="Gondor - Full Environment" loading="lazy">
+            </div>
+            <div class="timeline__info">
+              <h3 data-i18n="process.step3.title">Environment</h3>
+              <p data-i18n="process.step3.desc">Full scene assembly — sky, water, terrain, and atmospheric effects. Building the complete world around the architecture.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__marker">
+            <span class="timeline__num">04</span>
+          </div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/gondor-04-composition.webp" alt="Gondor - Composition" loading="lazy">
+            </div>
+            <div class="timeline__info">
+              <h3 data-i18n="process.step4.title">Composition</h3>
+              <p data-i18n="process.step4.desc">Camera placement, lighting design, and material refinement. Crafting the cinematic framing that tells the story.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__marker">
+            <span class="timeline__num">05</span>
+          </div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/gondor-05-final.webp" alt="Gondor - Final Render" loading="lazy">
+            </div>
+            <div class="timeline__info">
+              <h3 data-i18n="process.step5.title">Final Render</h3>
+              <p data-i18n="process.step5.desc">High-resolution render with Corona Renderer, followed by color grading and post-production. The complete vision realized.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 360° EXPERIENCE ========== -->
+  <section class="section" id="pano360">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label" data-i18n="pano.label">Immersive</span>
+        <h2 class="section__title" data-i18n="pano.title" data-i18n-html="true">360° <strong>Experience</strong></h2>
+        <p class="section__subtitle" data-i18n="pano.subtitle">Explore spaces interactively. Click and drag to look around — just like being there.</p>
+      </div>
+
+      <div class="viewer-360 reveal">
+        <div class="viewer-360__container" id="panorama"></div>
+        <div class="viewer-360__selector">
+          <button class="viewer-360__btn active" data-pano="images/astete-360-sala.webp" data-i18n="pano.btn2">Astete Park — Living Room</button>
+          <button class="viewer-360__btn" data-pano="images/astete-360-cocina.webp" data-i18n="pano.btn3">Astete Park — Kitchen</button>
+          <button class="viewer-360__btn" data-pano="images/astete-360-bedroom.webp" data-i18n="pano.btn4">Astete Park — Master Bedroom</button>
+          <button class="viewer-360__btn" data-pano="images/astete-360-bathroom.webp" data-i18n="pano.btn5">Astete Park — Bathroom</button>
+          <button class="viewer-360__btn" data-pano="images/depto1-360.webp" data-i18n="pano.btn1">Luxury Apartment</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VIDEOS ========== -->
+  <section class="section section--alt" id="videos">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label" data-i18n="videos.label">Motion</span>
+        <h2 class="section__title" data-i18n="videos.title" data-i18n-html="true">Architectural <strong>Animation</strong></h2>
+        <p class="section__subtitle" data-i18n="videos.subtitle">Cinematic walkthroughs that bring spaces to life with movement, light, and atmosphere.</p>
+      </div>
+
+      <div class="video-grid reveal">
+        <div class="video-card">
+          <video controls preload="metadata" poster="images/poster-dolly-in.webp">
+            <source src="videos/dolly-in.mp4" type="video/mp4">
+          </video>
+          <div class="video-card__info">
+            <h3 class="video-card__title" data-i18n="videos.v1.title">Slow Dolly In</h3>
+            <p class="video-card__desc" data-i18n="videos.v1.desc">Cinematic approach into a modern living space</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" poster="images/poster-switch-design.webp">
+            <source src="videos/switch-design.mp4" type="video/mp4">
+          </video>
+          <div class="video-card__info">
+            <h3 class="video-card__title" data-i18n="videos.v2.title">Design Switch</h3>
+            <p class="video-card__desc" data-i18n="videos.v2.desc">Real-time transition between design options</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" poster="images/poster-sala-personas.webp">
+            <source src="videos/sala-personas.mp4" type="video/mp4">
+          </video>
+          <div class="video-card__info">
+            <h3 class="video-card__title" data-i18n="videos.v3.title">Living with People</h3>
+            <p class="video-card__desc" data-i18n="videos.v3.desc">Bringing life into architectural visualization</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" poster="images/poster-empty-room.webp">
+            <source src="videos/empty-room.mp4" type="video/mp4">
+          </video>
+          <div class="video-card__info">
+            <h3 class="video-card__title" data-i18n="videos.v4.title">Empty Room</h3>
+            <p class="video-card__desc" data-i18n="videos.v4.desc">Pure architectural space — light, materials, silence</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__cta reveal">
+        <a href="#contact" class="btn btn--primary" data-i18n="videos.cta">Start Your Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label" data-i18n="about.label">About</span>
+        <h2 class="section__title" data-i18n="about.title" data-i18n-html="true">The Artist Behind <strong>the Vision</strong></h2>
+      </div>
+
+      <div class="about__grid reveal">
+        <div class="about__photo">
+          <img src="images/andrew-photo.webp" alt="Andrew Montejo — Architectural Visualization Artist">
+        </div>
+        <div class="about__text">
+          <p data-i18n="about.p1">
+            I'm Andrew Montejo, an architect and 3D visualization specialist based in
+            Lima, Peru, with over 8 years of experience transforming architectural blueprints
+            into compelling photorealistic imagery.
+          </p>
+          <p data-i18n="about.p2">
+            My process is meticulous: every project goes through careful 3D modeling,
+            scene composition, lighting design, material crafting, high-resolution rendering,
+            and professional post-production — crafted to communicate architectural intent
+            with cinematic clarity.
+          </p>
+          <p data-i18n="about.p3">
+            Current and recent client work covers luxury brands across watchmaking, retail,
+            and beauty (under NDA), alongside residential, hospitality and commercial projects
+            for architecture studios and developers worldwide.
+          </p>
+
+          <div class="about__stats">
+            <div>
+              <span class="stat__number">8+</span>
+              <span class="stat__label" data-i18n="about.stat1">Years Experience</span>
+            </div>
+            <div>
+              <span class="stat__number">50+</span>
+              <span class="stat__label" data-i18n="about.stat2">Projects Delivered</span>
+            </div>
+            <div>
+              <span class="stat__number stat__number--text" data-i18n="about.stat3num">Luxury</span>
+              <span class="stat__label" data-i18n="about.stat3">Brand Experience (NDA)</span>
+            </div>
+          </div>
+
+          <div class="about__tools-grid">
+            <span class="tool-chip">3ds Max</span>
+            <span class="tool-chip">Corona Renderer</span>
+            <span class="tool-chip">V-Ray</span>
+            <span class="tool-chip">Photoshop</span>
+            <span class="tool-chip">After Effects</span>
+            <span class="tool-chip">Forest Pack</span>
+            <span class="tool-chip">RailClone</span>
+            <span class="tool-chip">360° Panoramas</span>
+            <span class="tool-chip">Animation</span>
+            <span class="tool-chip" data-i18n="about.chip.ai">AI Post (optional)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section section--alt" id="services">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label" data-i18n="services.label">Services</span>
+        <h2 class="section__title" data-i18n="services.title" data-i18n-html="true">What I <strong>Offer</strong></h2>
+        <p class="section__subtitle" data-i18n="services.subtitle">Every project is tailored to your needs. Request a custom quote for your specific requirements.</p>
+      </div>
+
+      <div class="services__grid reveal">
+        <div class="service-card">
+          <span class="service-card__icon">◈</span>
+          <h3 class="service-card__title" data-i18n="services.s1.title">Interior Renders</h3>
+          <p class="service-card__desc" data-i18n="services.s1.desc">Photorealistic interior visualizations with precise lighting, materials, and atmosphere for luxury residential, hospitality, and commercial projects.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">◇</span>
+          <h3 class="service-card__title" data-i18n="services.s2.title">Exterior Renders</h3>
+          <p class="service-card__desc" data-i18n="services.s2.desc">Cinematic exterior visualizations with realistic environments — day, dusk, and night scenes that showcase your building in context.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">◉</span>
+          <h3 class="service-card__title" data-i18n="services.s3.title">360° Panoramas</h3>
+          <p class="service-card__desc" data-i18n="services.s3.desc">Interactive panoramic renders for virtual tours and client presentations. Let your buyers explore the space before it's built.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">▶</span>
+          <h3 class="service-card__title" data-i18n="services.s4.title">Animation</h3>
+          <p class="service-card__desc" data-i18n="services.s4.desc">Cinematic walkthrough animations and flyovers with professional lighting transitions, camera movement, and post-production.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-card__icon">△</span>
+          <h3 class="service-card__title" data-i18n="services.s6.title">Post-Production</h3>
+          <p class="service-card__desc" data-i18n="services.s6.desc">Professional color grading, compositing, and image refinement to elevate every render to a final, presentation-ready quality.</p>
+        </div>
+        <div class="service-card service-card--addon">
+          <span class="service-card__icon">✦</span>
+          <h3 class="service-card__title" data-i18n="services.s5.title" data-i18n-html="true">AI Augmentation <span style="opacity:.6;font-weight:400;font-size:.8em;">— optional add-on</span></h3>
+          <p class="service-card__desc" data-i18n="services.s5.desc">For projects where it serves the brief, I can layer AI augmentation on top of traditional 3D output for additional material refinement or visual exploration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section__header section__header--center reveal">
+        <span class="section__label" data-i18n="contact.label">Contact</span>
+        <h2 class="section__title" data-i18n="contact.title" data-i18n-html="true">Let's Work <strong>Together</strong></h2>
+        <p class="section__subtitle" data-i18n="contact.subtitle">Send me your plans, references, and vision. I'll provide a detailed custom quote within 24 hours.</p>
+      </div>
+
+      <div class="contact__grid reveal">
+        <div class="contact__info">
+          <h3 data-i18n="contact.info.title">Ready to bring your project to life?</h3>
+          <p data-i18n="contact.info.desc">
+            I work with architecture studios and developers worldwide.
+            Every project receives personalized attention and a tailored approach
+            to match your vision and timeline.
+          </p>
+          <div class="contact__methods">
+            <a href="mailto:Drew.viz.pe@gmail.com" class="contact-method">
+              <span class="contact-method__icon">✉</span>
+              <div>
+                <div class="contact-method__label" data-i18n="contact.email">Email</div>
+                <div class="contact-method__value">Drew.viz.pe@gmail.com</div>
+              </div>
+            </a>
+            <a href="https://wa.me/51970773849" target="_blank" rel="noopener noreferrer" class="contact-method">
+              <span class="contact-method__icon">💬</span>
+              <div>
+                <div class="contact-method__label">WhatsApp</div>
+                <div class="contact-method__value">+51 970 773 849</div>
+              </div>
+            </a>
+            <div class="contact-method">
+              <span class="contact-method__icon">📍</span>
+              <div>
+                <div class="contact-method__label" data-i18n="contact.based">Based in</div>
+                <div class="contact-method__value" data-i18n="contact.location">Lima, Peru — Available Worldwide</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact__form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" data-i18n="contact.form.name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" data-i18n-ph="contact.form.name_ph" required>
+            </div>
+            <div class="form-group">
+              <label for="email" data-i18n="contact.form.email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service" data-i18n="contact.form.service">Service Needed</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected data-i18n="contact.form.select">Select a service…</option>
+              <option value="Interior Renders" data-i18n="contact.form.opt.interior">Interior Renders</option>
+              <option value="Exterior Renders" data-i18n="contact.form.opt.exterior">Exterior Renders</option>
+              <option value="360 Panorama" data-i18n="contact.form.opt.pano">360° Panorama</option>
+              <option value="Animation" data-i18n="contact.form.opt.animation">Architectural Animation</option>
+              <option value="Post-Production" data-i18n="contact.form.opt.postprod">Post-Production</option>
+              <option value="AI Augmentation" data-i18n="contact.form.opt.ai">AI Augmentation (optional add-on)</option>
+              <option value="Full Package" data-i18n="contact.form.opt.full">Full Package</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message" data-i18n="contact.form.details">Project Details</label>
+            <textarea id="message" name="message" required placeholder="Tell me about your project: type of space, style references, number of renders, timeline..." data-i18n-ph="contact.form.details_ph"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center;" data-i18n="contact.form.submit">Send Message</button>
+          <div class="form-success" id="formSuccess">
+            <div class="form-success__checkmark">
+              <svg viewBox="0 0 52 52">
+                <circle cx="26" cy="26" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M14 27l7 7 16-16"/>
+              </svg>
+            </div>
+            <p class="form-success__title" data-i18n="contact.success.title">Message Sent!</p>
+            <p class="form-success__text" data-i18n="contact.success.text">We'll get back to you as soon as possible. Thank you!</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LIGHTBOX ========== -->
+  <div class="lightbox">
+    <button class="lightbox__close" aria-label="Close lightbox">✕</button>
+    <button class="lightbox__nav lightbox__prev" aria-label="Previous image">←</button>
+    <button class="lightbox__nav lightbox__next" aria-label="Next image">→</button>
+    <span class="lightbox__counter"></span>
+    <img class="lightbox__img" src="" alt="Render preview">
+    <div class="lightbox__info">
+      <h3></h3>
+      <p></p>
+    </div>
+  </div>
+
+  <!-- ========== BACK TO TOP ========== -->
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p data-i18n="footer.copy">© 2026 DREW.VIZ — Architectural Visualization Studio</p>
+    <div class="footer__social">
+      <a href="mailto:Drew.viz.pe@gmail.com">Email</a>
+      <a href="https://wa.me/51970773849" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://www.behance.net/drewstu" target="_blank" rel="noopener noreferrer">Behance</a>
+      <a href="https://www.instagram.com/drew.stud/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.linkedin.com/in/callmedru/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

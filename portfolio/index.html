@@ -1,688 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DREW.VIZ | Architectural Visualization Studio</title>
-  <meta name="description" content="High-end architectural visualization by Drew.Viz. Photorealistic renders, immersive 360° panoramas and cinematic animations for architecture studios and luxury developers worldwide. Based in Lima, Peru.">
-  <meta name="keywords" content="architectural visualization, 3D rendering, archviz, Corona Renderer, VRay, luxury residential, hospitality renders, interior design, exterior render, 360 panorama, architectural animation, 3ds Max">
-  <meta name="author" content="Andrew Montejo — Drew.Viz">
-  <link rel="canonical" href="https://drewviz.com">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drew Montejo. One day of light. Architectural Visualization</title>
+<meta name="description" content="Cinematic exterior architectural visualization by Drew Montejo. Four places, one day of light: dawn, high sun, golden hour, dusk. 3ds Max + Corona Renderer. Lima, available worldwide.">
+<meta name="author" content="Andrew Montejo, drewviz">
+<link rel="canonical" href="https://drewviz.com">
+<meta property="og:title" content="Drew Montejo. One day of light.">
+<meta property="og:description" content="Cinematic exterior architectural visualization. Four places, one day of light.">
+<meta property="og:image" content="https://drewviz.com/images/v6/og-cover.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://drewviz.com">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "drewviz \u2014 Drew Montejo \u00b7 Architectural Visualization",
+  "description": "Cinematic exterior architectural visualization: atmospheric, light-driven renders for residential, hospitality and landscape architecture projects worldwide.",
+  "url": "https://drewviz.com",
+  "image": "https://drewviz.com/images/v6/gondor-cover.webp",
+  "email": "drew.viz.pe@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Lima", "addressCountry": "PE" },
+  "founder": { "@type": "Person", "name": "Andrew Montejo", "jobTitle": "Architectural Visualization Artist" },
+  "areaServed": "Worldwide",
+  "serviceType": ["Architectural Visualization", "Exterior Rendering", "3D Rendering", "Architectural Animation"]
+}
+</script>
+<meta name="theme-color" content="#ebe6d9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23272420'/%3E%3Ctext x='32' y='47' font-family='Georgia,serif' font-style='italic' font-size='42' fill='%23c98a4a' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="images/v6/film-poster-v2.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="DREW.VIZ | Architectural Visualization Studio">
-  <meta property="og:description" content="Photorealistic renders, immersive 360° panoramas and cinematic animations for luxury residential, hospitality, and architectural projects. Available worldwide.">
-  <meta property="og:image" content="https://drewviz.com/images/gondor-05-final.jpg">
-  <meta property="og:url" content="https://drewviz.com">
-  <meta property="og:type" content="website">
+:root{
+  /* paleta fija clara: marfil/hueso + tinta calida + pizarra */
+  --bg:#ebe6d9;
+  --bg2:#e3ddcd;
+  --ink:#272420;
+  --soft:#5d584d;
+  --dim:#67635a;
+  --line:rgba(39,36,32,0.16);
+  --warm:#46566c;
+  --mx:50vw;
+  --my:50vh;
+  --display:'Fraunces',Georgia,serif;
+  --sans:'Archivo',-apple-system,sans-serif;
+  --eo:cubic-bezier(0.22,1,0.36,1);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  transition:color 600ms linear;
+}
+::selection{background:rgba(160,175,200,0.35)}
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DREW.VIZ | Architectural Visualization Studio">
-  <meta name="twitter:description" content="Photorealistic renders, immersive 360° panoramas and cinematic animations for luxury residential, hospitality and commercial projects.">
-  <meta name="twitter:image" content="https://drewviz.com/images/gondor-05-final.jpg">
+/* film grain */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:200;opacity:0.05;mix-blend-mode:overlay;
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' stitchTiles='stitch'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>")}
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "DREW.VIZ — Architectural Visualization Studio",
-    "description": "High-end architectural visualization: photorealistic renders, 360° panoramas and cinematic animations for luxury residential, hospitality, and commercial projects worldwide.",
-    "url": "https://drewviz.com",
-    "image": "https://drewviz.com/images/gondor-05-final.jpg",
-    "telephone": "+51970773849",
-    "email": "Drew.viz.pe@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Lima",
-      "addressCountry": "PE"
-    },
-    "founder": {
-      "@type": "Person",
-      "name": "Andrew Montejo",
-      "jobTitle": "Architectural Visualization Artist"
-    },
-    "areaServed": "Worldwide",
-    "serviceType": ["Architectural Visualization", "3D Rendering", "360 Panorama", "Architectural Animation"],
-    "priceRange": "$$"
-  }
-  </script>
+/* ━━━ NAV ━━━ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:160;display:flex;justify-content:space-between;align-items:center;padding:26px 56px;transition:background 420ms var(--eo),padding 420ms var(--eo),box-shadow 420ms var(--eo)}
+.nav.scrolled{padding:14px 56px;background:color-mix(in oklab,var(--bg) 78%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+@media(max-width:900px){.nav.scrolled{padding:10px 20px}}
+.brand{font-family:var(--display);font-size:20px;font-weight:400;color:var(--ink);text-decoration:none;letter-spacing:0.01em;transition:color 600ms linear}
+.brand i{font-style:italic;color:var(--warm);transition:color 600ms linear}
+.nav .links{display:flex;gap:26px;font-size:11px;letter-spacing:0.26em;text-transform:uppercase}
+.nav .links a{color:var(--soft);text-decoration:none;position:relative;transition:color 300ms var(--eo)}
+.nav .links a:hover{color:var(--ink)}
+.nav .links a::after{content:'';position:absolute;left:0;bottom:-5px;height:1px;width:0;background:var(--warm);transition:width 380ms var(--eo)}
+.nav .links a:hover::after{width:100%}
+@media(max-width:900px){.nav{padding:18px 20px}.nav .links{gap:6px 14px;flex-wrap:wrap;justify-content:flex-end}.nav .links a{padding:10px 4px}}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+/* ━━━ HERO · FILM ━━━ */
+.hero{min-height:100vh;position:relative;display:grid;place-items:center;overflow:hidden;padding:0 56px}
+.hero-bg{position:absolute;inset:0;background:#000}
+.hero-bg video{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82) contrast(1.04) saturate(1.04)}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+/* legibilidad del texto + fundido a la pagina abajo */
+.hero-edge{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,9,8,0.45) 0%,rgba(10,9,8,0.12) 30%,rgba(10,9,8,0.30) 62%,var(--bg) 100%)}
+.hero-center{position:relative;z-index:2;text-align:center;max-width:1080px;color:#f3efe6;text-shadow:0 2px 30px rgba(0,0,0,0.55),0 1px 3px rgba(0,0,0,0.5)}
+.hero-center .hero-kicker{color:#e9c79c}
+.hero-center h1{color:#f6f1e7}
+.hero-center h1 i{color:#e9c79c}
+.hero-center .hero-sub{color:#e6ddcd}
+.hero-sound{margin-top:34px;display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:#f3efe6;background:rgba(20,18,15,0.32);border:1px solid rgba(255,255,255,0.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:14px 26px;cursor:pointer;transition:background .3s var(--eo),border-color .3s var(--eo)}
+.hero-sound:hover{background:rgba(20,18,15,0.5);border-color:#fff}
+.hero-sound .hs-ico{font-size:12px}
+.hero-foot{color:#d9cfbf}
+.hero-kicker{font-size:11px;letter-spacing:0.5em;text-transform:uppercase;color:var(--warm);margin-bottom:30px;transition:color 600ms linear}
+.hero h1{font-family:var(--display);font-weight:300;font-size:clamp(46px,7.4vw,116px);line-height:0.96;letter-spacing:-0.025em}
+.hero h1 i{font-style:italic;font-weight:300;color:var(--warm);transition:color 600ms linear}
+.hero-sub{margin-top:30px;font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(17px,1.7vw,23px);color:var(--soft);transition:color 600ms linear}
+.hero-foot{position:absolute;bottom:34px;left:56px;right:56px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:var(--dim);z-index:2;transition:color 600ms linear}
+.hero-foot .pulse{display:inline-block;animation:sink 2.6s ease-in-out infinite}
+@keyframes sink{0%,100%{transform:translateY(0);opacity:0.6}50%{transform:translateY(5px);opacity:1}}
+@media(max-width:900px){.hero{padding:0 20px}.hero-foot{left:20px;right:20px}}
 
-  <!-- Pannellum 360 Viewer -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
-  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js" defer></script>
+/* ━━━ CHAPTER ━━━ */
+.hour{padding:15vh 56px 6vh;max-width:1560px;margin:0 auto}
+.hour-head{display:flex;align-items:baseline;gap:26px;border-top:1px solid var(--line);padding-top:22px;margin-bottom:6vh;flex-wrap:wrap;transition:border-color 600ms linear}
+.hour-time{font-size:13px;letter-spacing:0.3em;color:var(--warm);font-variant-numeric:tabular-nums;transition:color 600ms linear}
+.hour-name{font-family:var(--display);font-weight:300;font-size:clamp(34px,4.6vw,72px);line-height:1;letter-spacing:-0.02em}
+.hour-name i{font-style:italic;color:var(--warm);transition:color 600ms linear}
+.hour-tag{margin-left:auto;font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:var(--dim);transition:color 600ms linear}
+.hour-line{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(17px,1.6vw,22px);color:var(--soft);max-width:640px;margin-bottom:5vh;transition:color 600ms linear}
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css">
+.frame{margin-bottom:18px}
+.frame img{display:block;max-height:84vh;max-width:100%;width:auto;height:auto;margin:0 auto;box-shadow:0 30px 80px -45px rgba(0,0,0,0.6);cursor:zoom-in}
+.report{display:flex;justify-content:space-between;gap:26px;border-top:1px solid var(--line);padding-top:10px;font-size:12px;letter-spacing:0.08em;color:var(--dim);max-width:1100px;margin:0 auto 5vh;flex-wrap:wrap;transition:color 600ms linear,border-color 600ms linear}
+.report b{font-weight:500;color:var(--soft);letter-spacing:0.2em;text-transform:uppercase;font-size:10px;transition:color 600ms linear}
+.report span{font-variant-numeric:tabular-nums}
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+.duo figure img,.strip figure img{display:block;max-height:56vh;max-width:100%;width:auto;height:auto;margin:0 auto;cursor:zoom-in}
+.duo figcaption,.strip figcaption{margin-top:8px;font-size:12px;color:var(--dim);font-family:var(--display);font-style:italic;display:flex;justify-content:space-between;transition:color 600ms linear}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:4vh 0 2vh}
+.strip-kicker{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--warm);margin:6vh 0 18px;transition:color 600ms linear}
+@media(max-width:900px){.hour{padding-left:20px;padding-right:20px}.duo,.strip{grid-template-columns:1fr}}
+
+/* ━━━ CLAY SLIDER ━━━ */
+.compare{position:relative;max-width:1100px;margin:5vh auto 0;aspect-ratio:2200/1476;overflow:hidden;cursor:ew-resize;touch-action:none;user-select:none;box-shadow:0 30px 80px -45px rgba(0,0,0,0.55)}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.cmp-top{clip-path:inset(0 50% 0 0)}
+.cmp-line{position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--ink);opacity:0.85;pointer-events:none}
+.cmp-line::after{content:'◂ ▸';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--bg);border:1px solid var(--line);color:var(--ink);font-size:10px;letter-spacing:0.16em;padding:7px 10px;border-radius:999px;white-space:nowrap;font-family:var(--sans);transition:background 600ms linear,color 600ms linear}
+.cmp-tag{position:absolute;bottom:12px;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:#f3ead9;background:rgba(20,16,12,0.55);padding:5px 11px;pointer-events:none}
+.cmp-tag.l{left:12px}.cmp-tag.r{right:12px}
+.compare-cap{max-width:1100px;margin:12px auto 0;font-family:var(--display);font-style:italic;font-size:13px;color:var(--dim);display:flex;justify-content:space-between;transition:color 600ms linear}
+
+/* ━━━ DUSK / PRACTICE ━━━ */
+.practice{padding:16vh 56px;max-width:1280px;margin:0 auto}
+.practice-grid{display:grid;grid-template-columns:0.9fr 1.4fr;gap:70px;align-items:start;border-top:1px solid var(--line);padding-top:8vh;transition:border-color 600ms linear}
+.portrait{aspect-ratio:4/5;overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.25) contrast(1.05)}
+.practice h2{font-family:var(--display);font-weight:300;font-size:clamp(34px,4vw,58px);line-height:1.02;letter-spacing:-0.02em;margin-bottom:26px}
+.practice h2 i{font-style:italic;color:var(--warm);transition:color 600ms linear}
+.practice p{font-family:var(--display);font-weight:300;font-size:18px;line-height:1.65;color:var(--soft);margin-bottom:18px;max-width:62ch;transition:color 600ms linear}
+.practice p strong{color:var(--ink);font-weight:500}
+.stack{margin-top:30px;display:grid;grid-template-columns:repeat(3,auto);gap:10px 40px;font-size:12px;letter-spacing:0.06em}
+.stack dt{color:var(--dim);text-transform:uppercase;letter-spacing:0.2em;font-size:9px;margin-bottom:2px;transition:color 600ms linear}
+.stack dd{font-family:var(--display);font-style:italic;font-size:15px;color:var(--ink)}
+.doors{margin-top:7vh;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.door{position:relative;display:block;text-decoration:none;border:1px solid var(--line);padding:30px 32px;transition:border-color 360ms var(--eo),background 360ms var(--eo)}
+.door:hover{border-color:var(--warm)}
+.door .k{font-size:10px;letter-spacing:0.34em;text-transform:uppercase;color:var(--warm);transition:color 600ms linear}
+.door .t{font-family:var(--display);font-weight:300;font-size:clamp(22px,2.2vw,32px);color:var(--ink);margin-top:6px}
+.door .t i{font-style:italic;color:var(--warm)}
+.door .a{position:absolute;right:26px;bottom:24px;color:var(--dim);font-size:16px;transition:transform 360ms var(--eo),color 360ms var(--eo)}
+.door:hover .a{transform:translateX(6px);color:var(--warm)}
+@media(max-width:900px){.practice{padding-left:20px;padding-right:20px}.practice-grid{grid-template-columns:1fr;gap:40px}.doors{grid-template-columns:1fr}.stack{grid-template-columns:repeat(2,auto)}}
+
+/* ━━━ FILM ━━━ */
+.film{padding:14vh 56px;max-width:1400px;margin:0 auto;border-top:1px solid var(--line)}
+.film-head{margin-bottom:5vh}
+.film-kicker{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--warm);margin-bottom:14px}
+.film-title{font-family:var(--display);font-weight:300;font-size:clamp(34px,4.6vw,72px);line-height:1;letter-spacing:-.02em}
+.film-title i{font-style:italic;color:var(--warm)}
+.film-line{font-family:var(--display);font-style:italic;font-size:clamp(16px,1.5vw,20px);color:var(--soft);margin-top:14px;max-width:640px}
+.film-player{position:relative;overflow:hidden;box-shadow:0 30px 80px -45px rgba(0,0,0,.5);cursor:pointer;background:#000;aspect-ratio:16/9}
+.film-player video{width:100%;height:100%;display:block;object-fit:cover}
+.film-play{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;border:1px solid rgba(255,255,255,.65);background:rgba(20,18,15,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding-left:5px;transition:transform .3s var(--eo),background .3s}
+.film-player:hover .film-play{transform:scale(1.08);background:rgba(20,18,15,.5)}
+.film-play.hidden{display:none}
+.film-cap{margin-top:12px;display:flex;justify-content:space-between;font-size:12px;color:var(--dim);font-family:var(--display);font-style:italic}
+@media(max-width:900px){.film{padding-left:20px;padding-right:20px}.film-play{width:64px;height:64px;font-size:20px}}
+
+/* ━━━ NIGHT / CONTACT: una ventana oscura encendida sobre la pared clara ━━━ */
+.night{min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:14vh 56px;position:relative}
+.night-kicker{font-size:11px;letter-spacing:0.5em;text-transform:uppercase;color:var(--dim);margin-bottom:30px}
+.night h2{font-family:var(--display);font-weight:300;font-size:clamp(34px,4.8vw,76px);line-height:1.04;letter-spacing:-0.022em;max-width:980px;margin-bottom:7vh;color:var(--ink)}
+.night h2 i{font-style:italic;color:var(--warm)}
+.window{display:inline-block;text-decoration:none;padding:52px 96px;border:none;
+  background:radial-gradient(closest-side at 50% 50%,color-mix(in oklab,var(--warm) 16%,transparent) 0%,color-mix(in oklab,var(--warm) 9%,transparent) 52%,transparent 100%);
+  transition:transform 500ms var(--eo)}
+.window::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:radial-gradient(closest-side at 50% 50%,color-mix(in oklab,var(--warm) 24%,transparent) 0%,color-mix(in oklab,var(--warm) 12%,transparent) 52%,transparent 100%);
+  transition:opacity 500ms var(--eo)}
+.window{position:relative}
+.window:hover::after{opacity:1}
+.window:hover{transform:translateY(-2px)}
+.window .label{position:relative;font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:10px}
+.window .mail{position:relative;font-family:var(--display);font-style:italic;font-size:clamp(22px,2.7vw,34px);color:var(--warm)}
+.night-meta{margin-top:7vh;display:flex;gap:30px;flex-wrap:wrap;justify-content:center;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--dim);transition:color 600ms linear}
+.night-meta a{color:var(--soft);text-decoration:none;transition:color 300ms var(--eo)}
+.night-meta a:hover{color:var(--ink)}
+.footer{padding:24px;text-align:center;font-size:10px;letter-spacing:0.34em;text-transform:uppercase;color:var(--dim);border-top:1px solid var(--line);transition:color 600ms linear,border-color 600ms linear}
+@media(max-width:900px){.night{padding-left:20px;padding-right:20px}.window{padding:26px 30px}}
+
+/* ━━━ LIGHTBOX ━━━ */
+.lb{position:fixed;inset:0;z-index:400;background:rgba(10,9,12,0.96);display:none;align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:94vw;max-height:90vh}
+.lb-x{position:absolute;top:20px;right:28px;background:none;border:none;color:#9a8f7d;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;cursor:pointer;padding:10px}
+.lb-x:hover{color:#ece7da}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;color:#9a8f7d;font-size:30px;cursor:pointer;padding:16px}
+.lb-nav:hover{color:#ece7da}
+.lb-prev{left:12px}.lb-next{right:12px}
+.lb-cap{position:absolute;bottom:24px;left:0;right:0;text-align:center;font-family:var(--display);font-style:italic;font-size:14px;color:#c9bca6}
+
+/* ━━━ REVEAL ━━━ */
+.rv{opacity:0;transform:translateY(30px);transition:opacity 1100ms var(--eo),transform 1100ms var(--eo)}
+.rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition-duration:0.01ms!important;animation:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
 
-  <!-- Skip to content (accessibility) -->
-  <a href="#portfolio" class="skip-link">Skip to content</a>
+<!-- NAV -->
+<nav class="nav">
+  <a class="brand" href="index.html">Drew <i>Montejo</i></a>
+  <div class="links">
+    <a href="#golden">Work</a>
+    <a href="interiors.html">Interiors</a>
+    <a href="selected-work.html">Developments</a>
+    <a href="#practice">About</a>
+    <a href="#night">Contact</a>
+  </div>
+</nav>
 
-  <!-- ========== NAVIGATION ========== -->
-  <nav class="nav">
-    <a href="#" class="nav__logo">DREW<span>.VIZ</span></a>
-    <ul class="nav__links">
-      <li><a href="#portfolio">Work</a></li>
-      <li><a href="#creative">Process</a></li>
-      <li><a href="#pano360">360°</a></li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav__hamburger" aria-label="Toggle menu" role="button" tabindex="0">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
+<!-- HERO · FILM -->
+<header class="hero" id="top">
+  <div class="hero-bg"><video id="heroVid" preload="none" playsinline poster="images/v6/film-poster-v2.webp"><source src="videos/film-east-hampton-v2.mp4" type="video/mp4"></video></div>
+  <div class="hero-edge"></div>
+  <div class="hero-center">
+    <div class="hero-kicker rv in">Architectural visualization · Exteriors</div>
+    <h1 class="rv in">A cinematographer<br>of <i>architecture</i>.</h1>
+    <p class="hero-sub rv in">A film. East Hampton House, in the last hour of light.</p>
+    <button class="hero-sound" id="heroSound"><span class="hs-ico">&#9658;</span> Watch with sound</button>
+  </div>
+  <div class="hero-foot">
+    <div>Lima · Available worldwide</div>
+    <div><span class="pulse">&#9660;</span>&nbsp; Scroll</div>
+  </div>
+</header>
 
-  <!-- ========== HERO — Video Background ========== -->
-  <section class="hero" id="home">
-    <div class="hero__video-bg">
-      <video autoplay muted loop playsinline poster="images/hero-poster.jpg">
-        <source src="videos/dolly-in.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="hero__overlay"></div>
-    <div class="particles" id="particles"></div>
-    <div class="hero__content">
-      <span class="hero__label">Architectural Visualization Studio</span>
-      <h1 class="hero__title">Architectural <strong>narratives</strong><br>in light and form</h1>
-      <p class="hero__desc">
-        Photorealistic renders, immersive 360° experiences and cinematic
-        animations for luxury residential, hospitality and commercial projects worldwide.
-      </p>
-      <div class="hero__cta">
-        <a href="#contact" class="btn btn--primary">Request a Quote</a>
-        <a href="#portfolio" class="btn btn--outline">View Work</a>
+<!-- 18:52 · GOLDEN HOUR · EAST HAMPTON -->
+<section class="hour" id="golden" data-hour="18:52">
+  <div class="hour-head rv">
+    <div class="hour-time">18:52</div>
+    <h2 class="hour-name">Golden hour. <i>East Hampton House</i>.</h2>
+    <div class="hour-tag">Modernist residential · Study</div>
+  </div>
+  <p class="hour-line rv">Cedar holding the last warmth; dry meadow in the foreground, poplars holding the light behind.</p>
+  <figure class="frame rv"><img src="images/v6/easthampton-01.webp" alt="East Hampton house at golden hour"></figure>
+  <div class="report rv"><span><b>Frame</b>&nbsp; The house at golden hour</span><span><b>Engine</b>&nbsp; Corona Renderer</span><span><b>Build</b>&nbsp; 3ds Max · Forest Pack</span><span><b>Year</b>&nbsp; 2026</span></div>
+  <div class="duo rv">
+    <figure><img src="images/v6/easthampton-02.webp" alt="Approach perspective"><figcaption><span>Approach perspective</span></figcaption></figure>
+    <figure><img src="images/v6/easthampton-03.webp" alt="Entry close-up"><figcaption><span>Entry, up close</span></figcaption></figure>
+  </div>
+  <div class="compare rv" id="cmp">
+    <img src="images/v6/easthampton-01.webp" alt="Final render">
+    <img class="cmp-top" src="images/v6/easthampton-clay.webp" alt="Clay render">
+    <div class="cmp-line"></div>
+    <div class="cmp-tag l">Clay</div>
+    <div class="cmp-tag r">Final</div>
+  </div>
+  <div class="compare-cap rv"><span>Drag. Same camera, same light: everything else is decisions.</span><span>Clay to final</span></div>
+</section>
+
+<!-- 12:06 · HIGH SUN · WHITE VOLUMES -->
+<section class="hour" id="noon" data-hour="12:06">
+  <div class="hour-head rv">
+    <div class="hour-time">12:06</div>
+    <h2 class="hour-name">High sun. <i>White Volumes</i>.</h2>
+    <div class="hour-tag">Minimalist exteriors · Personal</div>
+  </div>
+  <p class="hour-line rv">White volume against open sky; the light is left to do the rest.</p>
+  <figure class="frame rv"><img src="images/v6/white-volumes-01.webp" alt="White Volumes, clerestory light"></figure>
+  <div class="report rv"><span><b>Frame</b>&nbsp; Clerestory light, low horizon</span><span><b>Engine</b>&nbsp; Corona Renderer</span><span><b>Year</b>&nbsp; 2026</span></div>
+  <div class="duo rv">
+    <figure><img src="images/v6/white-volumes-02.webp" alt="Golden gable in mist"><figcaption><span>Golden gable, mist</span></figcaption></figure>
+    <figure><img src="images/v6/white-volumes-03.webp" alt="Geometry against the horizon"><figcaption><span>Geometry against the horizon</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- 05:41 · DAWN · THE WHITE CITY -->
+<section class="hour" id="dawn" data-hour="05:41">
+  <div class="hour-head rv">
+    <div class="hour-time">05:41</div>
+    <h2 class="hour-name">First light. <i>The White City</i>.</h2>
+    <div class="hour-tag">Cinematic environment · Personal</div>
+  </div>
+  <p class="hour-line rv">A city held against its own myth, built at landscape scale and lit for atmosphere.</p>
+  <figure class="frame rv"><img src="images/v6/gondor-cover.webp" alt="The White City at dawn, mist on the water"></figure>
+  <div class="report rv"><span><b>Frame</b>&nbsp; Dawn over the city</span><span><b>Engine</b>&nbsp; Corona Renderer</span><span><b>Build</b>&nbsp; 3ds Max · Forest Pack · Photoshop</span><span><b>Year</b>&nbsp; 2026</span></div>
+  <div class="strip-kicker rv">How the frame is built</div>
+  <div class="strip rv">
+    <figure><img src="images/v6/gondor-stage1.webp" alt="Clay massing"><figcaption><span>01</span><span>Clay massing</span></figcaption></figure>
+    <figure><img src="images/v6/gondor-stage2.webp" alt="Grey study"><figcaption><span>02</span><span>Grey study</span></figcaption></figure>
+    <figure><img src="images/v6/gondor-stage3.webp" alt="Environment"><figcaption><span>03</span><span>Environment</span></figcaption></figure>
+    <figure><img src="images/v6/gondor-stage4.webp" alt="Lighting"><figcaption><span>04</span><span>Lighting</span></figcaption></figure>
+    <figure><img src="images/v6/gondor-stage5.webp" alt="Atmosphere"><figcaption><span>05</span><span>Atmosphere</span></figcaption></figure>
+    <figure><img src="images/v6/gondor-stage6.webp" alt="Final composite"><figcaption><span>06</span><span>Final composite</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- 19:58 · DUSK · THE PRACTICE -->
+<section class="practice" id="practice" data-hour="19:58">
+  <div class="practice-grid rv">
+    <div class="portrait"><img src="images/andrew-portrait.webp" alt="Andrew Montejo"></div>
+    <div>
+      <h2>Eight years <i>quiet</i>.</h2>
+      <p>I am <strong>Andrew Montejo</strong>, an architect and visualization artist in Lima. For eight years I have worked with architects, developers and design studios, building a discipline that treats every render as cinematography first, marketing second.</p>
+      <p>Recent work covers luxury brands across watchmaking, retail and beauty under NDA, alongside residential, hospitality and landscape projects. I work alone, deliberately: <strong>every frame is mine from clay to color</strong>.</p>
+      <dl class="stack">
+        <div><dt>Modeling</dt><dd>3ds Max</dd></div>
+        <div><dt>Render</dt><dd>Corona</dd></div>
+        <div><dt>Scatter</dt><dd>Forest Pack</dd></div>
+        <div><dt>Post</dt><dd>Photoshop · AE</dd></div>
+        <div><dt>Experience</dt><dd>8 yrs · 50+ projects</dd></div>
+        <div><dt>Languages</dt><dd>Español · English</dd></div>
+      </dl>
+      <div class="doors">
+        <a class="door" href="interiors.html"><span class="k">After dark, indoors</span><span class="t">The <i>interiors</i></span><span class="a">→</span></a>
+        <a class="door" href="selected-work.html"><span class="k">Built for clients</span><span class="t">The <i>developments</i></span><span class="a">→</span></a>
       </div>
-    </div>
-    <div class="hero__scroll">
-      <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ========== PORTFOLIO ========== -->
-  <section class="section" id="portfolio">
-    <div class="container">
-      <div class="section__header section__header--center reveal">
-        <span class="section__label">Portfolio</span>
-        <h2 class="section__title">Selected <strong>Projects</strong></h2>
-        <p class="section__subtitle">A curated selection of architectural visualizations across residential, commercial, and hospitality projects.</p>
-      </div>
-
-      <div class="portfolio__filter reveal">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="interior">Interior</button>
-        <button class="filter-btn" data-filter="exterior">Exterior</button>
-        <button class="filter-btn" data-filter="commercial">Commercial</button>
-        <button class="filter-btn" data-filter="creative">Creative</button>
-      </div>
-
-      <div class="gallery reveal">
-        <!-- HERO: Javier — luxury hospitality vibe -->
-        <div class="gallery__item gallery__item--wide" data-category="interior">
-          <img src="images/javier-living-fireplace.jpg" alt="Javier Residence Living with Fireplace" loading="lazy">
-          <div class="gallery__overlay"><h3>Javier Residence — Living</h3><p>Luxury Residential · Fireplace &amp; Stone Wall</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/javier-master-bath.jpg" alt="Javier Residence Master Bath" loading="lazy">
-          <div class="gallery__overlay"><h3>Javier — Master Bath</h3><p>Stone &amp; Travertine · Spa Atmosphere</p></div>
-        </div>
-
-        <div class="gallery__item" data-category="exterior">
-          <img src="images/kaisergarten.jpg" alt="Kaisergarten Tower at Dusk" loading="lazy">
-          <div class="gallery__overlay"><h3>Kaisergarten Tower</h3><p>Luxury Residential Exterior</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/javier-living-pool.jpg" alt="Javier Residence Living with Pool View" loading="lazy">
-          <div class="gallery__overlay"><h3>Javier — Living with Pool View</h3><p>Indoor-Outdoor Connection</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/vanessa-open-living.jpg" alt="Vanessa Open Living and Dining" loading="lazy">
-          <div class="gallery__overlay"><h3>Vanessa — Open Living &amp; Dining</h3><p>Live-Edge Table · Curated Lighting</p></div>
-        </div>
-
-        <div class="gallery__item" data-category="interior">
-          <img src="images/erika-kitchen.jpg" alt="Erika's Kitchen" loading="lazy">
-          <div class="gallery__overlay"><h3>Erika's Kitchen</h3><p>Natural Light Study</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/vanessa-master-suite.jpg" alt="Vanessa Master Suite" loading="lazy">
-          <div class="gallery__overlay"><h3>Vanessa — Master Suite</h3><p>Textured Headboard · Warm Ambient</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/javier-powder-room.jpg" alt="Javier Powder Room" loading="lazy">
-          <div class="gallery__overlay"><h3>Javier — Powder Room</h3><p>Emerald Tile · Brass Accents</p></div>
-        </div>
-
-        <div class="gallery__item" data-category="interior">
-          <img src="images/japandi-living.jpg" alt="Japandi Living Room" loading="lazy">
-          <div class="gallery__overlay"><h3>Japandi Living</h3><p>Warm Minimalism</p></div>
-        </div>
-        <div class="gallery__item" data-category="commercial">
-          <img src="images/astete-lobby.jpg" alt="Astete Park Lobby" loading="lazy">
-          <div class="gallery__overlay"><h3>Astete Park — Lobby</h3><p>Premium Common Areas</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/rustic-kitchen.jpg" alt="Rustic Kitchen" loading="lazy">
-          <div class="gallery__overlay"><h3>Rustic Kitchen</h3><p>Natural Materials</p></div>
-        </div>
-
-        <div class="gallery__item gallery__item--wide" data-category="interior">
-          <img src="images/tangleos-terraza.jpg" alt="Los Tangleos Terrace" loading="lazy">
-          <div class="gallery__overlay"><h3>Los Tangleos — Terrace</h3><p>Luxury Outdoor Living</p></div>
-        </div>
-        <div class="gallery__item" data-category="exterior">
-          <img src="images/astete-fachada.jpg" alt="Astete Park Facade" loading="lazy">
-          <div class="gallery__overlay"><h3>Astete Park</h3><p>Residential Building</p></div>
-        </div>
-
-        <div class="gallery__item" data-category="interior">
-          <img src="images/cocina-liblab.jpg" alt="LibLab Kitchen" loading="lazy">
-          <div class="gallery__overlay"><h3>LibLab Kitchen</h3><p>Modern Residential</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/sala-dulce.jpg" alt="Soft Light Living Room" loading="lazy">
-          <div class="gallery__overlay"><h3>Soft Light Living</h3><p>Minimalist Interior</p></div>
-        </div>
-        <div class="gallery__item" data-category="exterior">
-          <img src="images/tomas-marsano-night.jpg" alt="Tomas Marsano Night" loading="lazy">
-          <div class="gallery__overlay"><h3>Tomas Marsano</h3><p>Night View</p></div>
-        </div>
-
-        <div class="gallery__item gallery__item--wide" data-category="interior">
-          <img src="images/depto1-living.jpg" alt="Oceanview Apartment" loading="lazy">
-          <div class="gallery__overlay"><h3>Oceanview Apartment</h3><p>Modern Living</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/mueble-naranja.jpg" alt="Terracotta Living" loading="lazy">
-          <div class="gallery__overlay"><h3>Terracotta Living</h3><p>Warm Palette</p></div>
-        </div>
-
-        <div class="gallery__item" data-category="commercial">
-          <img src="images/restaurant-blue.jpg" alt="Blue Lounge Restaurant" loading="lazy">
-          <div class="gallery__overlay"><h3>Blue Lounge</h3><p>Restaurant Interior</p></div>
-        </div>
-        <div class="gallery__item" data-category="commercial">
-          <img src="images/desayunador-stripes.jpg" alt="Striped Breakfast Room" loading="lazy">
-          <div class="gallery__overlay"><h3>Striped Elegance</h3><p>Hospitality Interior</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/tangleos-interior.jpg" alt="Los Tangleos Interior" loading="lazy">
-          <div class="gallery__overlay"><h3>Los Tangleos</h3><p>Industrial Modern</p></div>
-        </div>
-
-        <div class="gallery__item" data-category="exterior">
-          <img src="images/chachapoyas-frontal.jpg" alt="Chachapoyas Building" loading="lazy">
-          <div class="gallery__overlay"><h3>Chachapoyas</h3><p>Residential Building</p></div>
-        </div>
-        <div class="gallery__item gallery__item--wide" data-category="exterior">
-          <img src="images/los-tangleos-fachada.jpg" alt="Los Tangleos Facade" loading="lazy">
-          <div class="gallery__overlay"><h3>Los Tangleos</h3><p>Luxury House — Facade</p></div>
-        </div>
-
-        <!-- NEW: Astete Park interiors -->
-        <div class="gallery__item" data-category="interior">
-          <img src="images/astete-kitchen.jpg" alt="Astete Park Kitchen" loading="lazy">
-          <div class="gallery__overlay"><h3>Astete Park — Kitchen</h3><p>Modern Residential</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/astete-bathroom.jpg" alt="Astete Park Bathroom" loading="lazy">
-          <div class="gallery__overlay"><h3>Astete Park — Bathroom</h3><p>Luxury Finishes</p></div>
-        </div>
-
-        <!-- NEW: Astete Park common areas -->
-        <div class="gallery__item" data-category="commercial">
-          <img src="images/astete-coworking.jpg" alt="Astete Park Coworking" loading="lazy">
-          <div class="gallery__overlay"><h3>Astete Park — Coworking</h3><p>Premium Amenities</p></div>
-        </div>
-        <div class="gallery__item" data-category="commercial">
-          <img src="images/astete-gym.jpg" alt="Astete Park Gym" loading="lazy">
-          <div class="gallery__overlay"><h3>Astete Park — Gym</h3><p>Residential Amenities</p></div>
-        </div>
-        <div class="gallery__item gallery__item--wide" data-category="commercial">
-          <img src="images/astete-gourmet.jpg" alt="Astete Park Gourmet Area" loading="lazy">
-          <div class="gallery__overlay"><h3>Astete Park — Gourmet</h3><p>Social Area</p></div>
-        </div>
-
-        <!-- NEW: Oficina Emilio -->
-        <div class="gallery__item" data-category="commercial">
-          <img src="images/oficina-emilio.jpg" alt="Office Design" loading="lazy">
-          <div class="gallery__overlay"><h3>Executive Office</h3><p>Corporate Interior</p></div>
-        </div>
-        <div class="gallery__item" data-category="commercial">
-          <img src="images/oficina-lounge.jpg" alt="Office Lounge" loading="lazy">
-          <div class="gallery__overlay"><h3>Office Lounge</h3><p>Corporate Relaxation Area</p></div>
-        </div>
-
-        <!-- NEW: Chachapoyas Lobby -->
-        <div class="gallery__item" data-category="commercial">
-          <img src="images/chachapoyas-lobby.jpg" alt="Chachapoyas Lobby" loading="lazy">
-          <div class="gallery__overlay"><h3>Chachapoyas — Lobby</h3><p>Residential Building</p></div>
-        </div>
-
-        <!-- NEW: Sol Naixet -->
-        <div class="gallery__item gallery__item--wide" data-category="exterior">
-          <img src="images/sol-naixet-aerial.jpg" alt="Sol Naixet Aerial View" loading="lazy">
-          <div class="gallery__overlay"><h3>Sol Naixet</h3><p>Aerial View — Residential Complex</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/sol-naixet-living.jpg" alt="Sol Naixet Living Room" loading="lazy">
-          <div class="gallery__overlay"><h3>Sol Naixet — Living</h3><p>Ground Floor Apartment</p></div>
-        </div>
-        <div class="gallery__item" data-category="interior">
-          <img src="images/sol-naixet-bedroom.jpg" alt="Sol Naixet Master Bedroom" loading="lazy">
-          <div class="gallery__overlay"><h3>Sol Naixet — Bedroom</h3><p>Master Suite</p></div>
-        </div>
-
-        <!-- NEW: Tomas Marsano -->
-        <div class="gallery__item" data-category="exterior">
-          <img src="images/tomas-marsano-malecon.jpg" alt="Malecon Costa Sur" loading="lazy">
-          <div class="gallery__overlay"><h3>Malecon Costa Sur</h3><p>Coastal Residential</p></div>
-        </div>
-
-        <!-- CREATIVE: cinematic showpiece -->
-        <div class="gallery__item gallery__item--wide" data-category="creative">
-          <img src="images/gondor-05-final.jpg" alt="The White City — Cinematic Environment Study" loading="lazy">
-          <div class="gallery__overlay"><h3>The White City</h3><p>Cinematic Environment Study · 3ds Max &amp; Corona</p></div>
-        </div>
-      </div>
-
-      <div class="section__cta reveal">
-        <a href="#contact" class="btn btn--primary">Request a Quote</a>
-        <a href="#creative" class="btn btn--outline">See My Process</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== DESIGN PROCESS ========== -->
-  <section class="section section--alt" id="creative">
-    <div class="container">
-      <div class="section__header section__header--center reveal">
-        <span class="section__label">Workflow</span>
-        <h2 class="section__title">Design <strong>Process</strong></h2>
-        <p class="section__subtitle">From raw geometry to cinematic final render — a step-by-step look at how I build photorealistic scenes. Project: Gondor — The White City.</p>
-      </div>
-
-      <div class="timeline reveal">
-        <div class="timeline__item">
-          <div class="timeline__marker">
-            <span class="timeline__num">01</span>
-          </div>
-          <div class="timeline__content">
-            <div class="timeline__image">
-              <img src="images/gondor-01-clay.jpg" alt="Gondor - Clay Render" loading="lazy">
-            </div>
-            <div class="timeline__info">
-              <h3>Clay Model</h3>
-              <p>Base geometry and massing. Pure 3D modeling without materials — focusing on proportions, scale, and architectural detail.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline__item">
-          <div class="timeline__marker">
-            <span class="timeline__num">02</span>
-          </div>
-          <div class="timeline__content">
-            <div class="timeline__image">
-              <img src="images/gondor-02-vegetation.jpg" alt="Gondor - Vegetation Pass" loading="lazy">
-            </div>
-            <div class="timeline__info">
-              <h3>Vegetation</h3>
-              <p>Adding organic elements — trees, grass, ground cover. Integrating nature with the built environment to create realism.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline__item">
-          <div class="timeline__marker">
-            <span class="timeline__num">03</span>
-          </div>
-          <div class="timeline__content">
-            <div class="timeline__image">
-              <img src="images/gondor-03-environment.jpg" alt="Gondor - Full Environment" loading="lazy">
-            </div>
-            <div class="timeline__info">
-              <h3>Environment</h3>
-              <p>Full scene assembly — sky, water, terrain, and atmospheric effects. Building the complete world around the architecture.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline__item">
-          <div class="timeline__marker">
-            <span class="timeline__num">04</span>
-          </div>
-          <div class="timeline__content">
-            <div class="timeline__image">
-              <img src="images/gondor-04-composition.jpg" alt="Gondor - Composition" loading="lazy">
-            </div>
-            <div class="timeline__info">
-              <h3>Composition</h3>
-              <p>Camera placement, lighting design, and material refinement. Crafting the cinematic framing that tells the story.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline__item">
-          <div class="timeline__marker">
-            <span class="timeline__num">05</span>
-          </div>
-          <div class="timeline__content">
-            <div class="timeline__image">
-              <img src="images/gondor-05-final.jpg" alt="Gondor - Final Render" loading="lazy">
-            </div>
-            <div class="timeline__info">
-              <h3>Final Render</h3>
-              <p>High-resolution render with Corona Renderer, followed by color grading and post-production. The complete vision realized.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== 360° EXPERIENCE ========== -->
-  <section class="section" id="pano360">
-    <div class="container">
-      <div class="section__header section__header--center reveal">
-        <span class="section__label">Immersive</span>
-        <h2 class="section__title">360° <strong>Experience</strong></h2>
-        <p class="section__subtitle">Explore spaces interactively. Click and drag to look around — just like being there.</p>
-      </div>
-
-      <div class="viewer-360 reveal">
-        <div class="viewer-360__container" id="panorama"></div>
-        <div class="viewer-360__selector">
-          <button class="viewer-360__btn active" data-pano="images/astete-360-sala.jpg">Astete Park — Living Room</button>
-          <button class="viewer-360__btn" data-pano="images/astete-360-cocina.jpg">Astete Park — Kitchen</button>
-          <button class="viewer-360__btn" data-pano="images/astete-360-bedroom.jpg">Astete Park — Master Bedroom</button>
-          <button class="viewer-360__btn" data-pano="images/astete-360-bathroom.jpg">Astete Park — Bathroom</button>
-          <button class="viewer-360__btn" data-pano="images/depto1-360.jpg">Luxury Apartment</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== VIDEOS ========== -->
-  <section class="section section--alt" id="videos">
-    <div class="container">
-      <div class="section__header section__header--center reveal">
-        <span class="section__label">Motion</span>
-        <h2 class="section__title">Architectural <strong>Animation</strong></h2>
-        <p class="section__subtitle">Cinematic walkthroughs that bring spaces to life with movement, light, and atmosphere.</p>
-      </div>
-
-      <div class="video-grid reveal">
-        <div class="video-card">
-          <video controls preload="metadata" poster="images/poster-dolly-in.jpg">
-            <source src="videos/dolly-in.mp4" type="video/mp4">
-          </video>
-          <div class="video-card__info">
-            <h3 class="video-card__title">Slow Dolly In</h3>
-            <p class="video-card__desc">Cinematic approach into a modern living space</p>
-          </div>
-        </div>
-        <div class="video-card">
-          <video controls preload="metadata" poster="images/poster-switch-design.jpg">
-            <source src="videos/switch-design.mp4" type="video/mp4">
-          </video>
-          <div class="video-card__info">
-            <h3 class="video-card__title">Design Switch</h3>
-            <p class="video-card__desc">Real-time transition between design options</p>
-          </div>
-        </div>
-        <div class="video-card">
-          <video controls preload="metadata" poster="images/poster-sala-personas.jpg">
-            <source src="videos/sala-personas.mp4" type="video/mp4">
-          </video>
-          <div class="video-card__info">
-            <h3 class="video-card__title">Living with People</h3>
-            <p class="video-card__desc">Bringing life into architectural visualization</p>
-          </div>
-        </div>
-        <div class="video-card">
-          <video controls preload="metadata" poster="images/poster-empty-room.jpg">
-            <source src="videos/empty-room.mp4" type="video/mp4">
-          </video>
-          <div class="video-card__info">
-            <h3 class="video-card__title">Empty Room</h3>
-            <p class="video-card__desc">Pure architectural space — light, materials, silence</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="section__cta reveal">
-        <a href="#contact" class="btn btn--primary">Start Your Project</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== ABOUT ========== -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="section__label">About</span>
-        <h2 class="section__title">The Artist Behind <strong>the Vision</strong></h2>
-      </div>
-
-      <div class="about__grid reveal">
-        <div class="about__photo">
-          <img src="images/andrew-photo.jpg" alt="Andrew Montejo — Architectural Visualization Artist">
-        </div>
-        <div class="about__text">
-          <p>
-            I'm Andrew Montejo, an architect and 3D visualization specialist based in
-            Lima, Peru, with over 8 years of experience transforming architectural blueprints
-            into compelling photorealistic imagery.
-          </p>
-          <p>
-            My process is meticulous: every project goes through careful 3D modeling,
-            scene composition, lighting design, material crafting, high-resolution rendering,
-            and professional post-production — crafted to communicate architectural intent
-            with cinematic clarity.
-          </p>
-          <p>
-            Current and recent client work covers luxury brands across watchmaking, retail,
-            and beauty (under NDA), alongside residential, hospitality and commercial projects
-            for architecture studios and developers worldwide.
-          </p>
-
-          <div class="about__stats">
-            <div>
-              <span class="stat__number">8+</span>
-              <span class="stat__label">Years Experience</span>
-            </div>
-            <div>
-              <span class="stat__number">50+</span>
-              <span class="stat__label">Projects Delivered</span>
-            </div>
-            <div>
-              <span class="stat__number stat__number--text">Luxury</span>
-              <span class="stat__label">Brand Experience (NDA)</span>
-            </div>
-          </div>
-
-          <div class="about__tools-grid">
-            <span class="tool-chip">3ds Max</span>
-            <span class="tool-chip">Corona Renderer</span>
-            <span class="tool-chip">V-Ray</span>
-            <span class="tool-chip">Photoshop</span>
-            <span class="tool-chip">After Effects</span>
-            <span class="tool-chip">Forest Pack</span>
-            <span class="tool-chip">RailClone</span>
-            <span class="tool-chip">360° Panoramas</span>
-            <span class="tool-chip">Animation</span>
-            <span class="tool-chip">AI Post (optional)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== SERVICES ========== -->
-  <section class="section section--alt" id="services">
-    <div class="container">
-      <div class="section__header section__header--center reveal">
-        <span class="section__label">Services</span>
-        <h2 class="section__title">What I <strong>Offer</strong></h2>
-        <p class="section__subtitle">Every project is tailored to your needs. Request a custom quote for your specific requirements.</p>
-      </div>
-
-      <div class="services__grid reveal">
-        <div class="service-card">
-          <span class="service-card__icon">◈</span>
-          <h3 class="service-card__title">Interior Renders</h3>
-          <p class="service-card__desc">Photorealistic interior visualizations with precise lighting, materials, and atmosphere for luxury residential, hospitality, and commercial projects.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-card__icon">◇</span>
-          <h3 class="service-card__title">Exterior Renders</h3>
-          <p class="service-card__desc">Cinematic exterior visualizations with realistic environments — day, dusk, and night scenes that showcase your building in context.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-card__icon">◉</span>
-          <h3 class="service-card__title">360° Panoramas</h3>
-          <p class="service-card__desc">Interactive panoramic renders for virtual tours and client presentations. Let your buyers explore the space before it's built.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-card__icon">▶</span>
-          <h3 class="service-card__title">Animation</h3>
-          <p class="service-card__desc">Cinematic walkthrough animations and flyovers with professional lighting transitions, camera movement, and post-production.</p>
-        </div>
-        <div class="service-card">
-          <span class="service-card__icon">△</span>
-          <h3 class="service-card__title">Post-Production</h3>
-          <p class="service-card__desc">Professional color grading, compositing, and image refinement to elevate every render to a final, presentation-ready quality.</p>
-        </div>
-        <div class="service-card service-card--addon">
-          <span class="service-card__icon">✦</span>
-          <h3 class="service-card__title">AI Augmentation <span style="opacity:.6;font-weight:400;font-size:.8em;">— optional add-on</span></h3>
-          <p class="service-card__desc">For projects where it serves the brief, I can layer AI augmentation on top of traditional 3D output for additional material refinement or visual exploration.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CONTACT ========== -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section__header section__header--center reveal">
-        <span class="section__label">Contact</span>
-        <h2 class="section__title">Let's Work <strong>Together</strong></h2>
-        <p class="section__subtitle">Send me your plans, references, and vision. I'll provide a detailed custom quote within 24 hours.</p>
-      </div>
-
-      <div class="contact__grid reveal">
-        <div class="contact__info">
-          <h3>Ready to bring your project to life?</h3>
-          <p>
-            I work with architecture studios and developers worldwide.
-            Every project receives personalized attention and a tailored approach
-            to match your vision and timeline.
-          </p>
-          <div class="contact__methods">
-            <a href="mailto:Drew.viz.pe@gmail.com" class="contact-method">
-              <span class="contact-method__icon">✉</span>
-              <div>
-                <div class="contact-method__label">Email</div>
-                <div class="contact-method__value">Drew.viz.pe@gmail.com</div>
-              </div>
-            </a>
-            <a href="https://wa.me/51970773849" target="_blank" rel="noopener noreferrer" class="contact-method">
-              <span class="contact-method__icon">💬</span>
-              <div>
-                <div class="contact-method__label">WhatsApp</div>
-                <div class="contact-method__value">+51 970 773 849</div>
-              </div>
-            </a>
-            <div class="contact-method">
-              <span class="contact-method__icon">📍</span>
-              <div>
-                <div class="contact-method__label">Based in</div>
-                <div class="contact-method__value">Lima, Peru — Available Worldwide</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <form class="contact__form" action="#" method="POST">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="service">Service Needed</label>
-            <select id="service" name="service" required>
-              <option value="" disabled selected>Select a service…</option>
-              <option value="Interior Renders">Interior Renders</option>
-              <option value="Exterior Renders">Exterior Renders</option>
-              <option value="360 Panorama">360° Panorama</option>
-              <option value="Animation">Architectural Animation</option>
-              <option value="Post-Production">Post-Production</option>
-              <option value="AI Augmentation">AI Augmentation (optional add-on)</option>
-              <option value="Full Package">Full Package</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Project Details</label>
-            <textarea id="message" name="message" placeholder="Tell me about your project: type of space, style references, number of renders, timeline..."></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center;">Send Email</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== LIGHTBOX ========== -->
-  <div class="lightbox">
-    <button class="lightbox__close" aria-label="Close lightbox">✕</button>
-    <button class="lightbox__nav lightbox__prev" aria-label="Previous image">←</button>
-    <button class="lightbox__nav lightbox__next" aria-label="Next image">→</button>
-    <span class="lightbox__counter"></span>
-    <img class="lightbox__img" src="" alt="Render preview">
-    <div class="lightbox__info">
-      <h3></h3>
-      <p></p>
     </div>
   </div>
+</section>
 
-  <!-- ========== BACK TO TOP ========== -->
-  <button class="back-to-top" aria-label="Back to top">↑</button>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
-    <p>© 2026 DREW.VIZ — Architectural Visualization Studio</p>
-    <div class="footer__social">
-      <a href="mailto:Drew.viz.pe@gmail.com">Email</a>
-      <a href="https://wa.me/51970773849" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      <a href="https://www.behance.net/drewstu" target="_blank" rel="noopener noreferrer">Behance</a>
-      <a href="https://www.instagram.com/drew.stud/" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.linkedin.com/in/callmedru/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+<!-- 21:13 · NIGHT · CONTACT -->
+<section class="night" id="night" data-hour="21:13">
+  <div class="rv">
+    <div class="night-kicker">21:13 · Last light</div>
+    <h2>When the light goes,<br>the windows <i>stay on</i>.</h2>
+    <a class="window" href="mailto:drew.viz.pe@gmail.com">
+      <span class="label">Write anytime</span>
+      <span class="mail">drew.viz.pe@gmail.com</span>
+    </a>
+    <div class="night-meta">
+      <span>Lima, Peru · GMT-5</span>
+      <a href="https://www.behance.net/drewstu" target="_blank" rel="noopener">Behance</a>
+      <a href="https://www.linkedin.com/in/callmedru/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/drew.stud/" target="_blank" rel="noopener">Instagram</a>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="js/main.js"></script>
+<footer class="footer">Drew Montejo · drewviz · shot on Corona Renderer · 2026</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-label="Image viewer">
+  <button class="lb-x" id="lbX">Close</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">←</button>
+  <img id="lbImg" alt="">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">→</button>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<script>
+// Legacy anchors (Upwork links to /#pano360 on the previous site)
+if (location.hash === '#pano360' || location.hash === '#panoramas') { location.replace('classic.html' + location.hash); }
+/* ━━━━━ HERO FILM: poster + click para reproducir con sonido (sin autoplay = ahorra ancho de banda) ━━━━━ */
+(() => {
+  const v=document.getElementById('heroVid'), b=document.getElementById('heroSound');
+  if(!v) return;
+  const edge=document.querySelector('.hero-edge'), center=document.querySelector('.hero-center');
+  if(b) b.addEventListener('click',()=>{
+    v.controls=true; v.play();
+    v.style.filter='none'; b.style.display='none';
+    if(edge) edge.style.opacity='0'; if(center) center.style.opacity='0';
+  });
+  v.addEventListener('ended',()=>{
+    v.controls=false; v.currentTime=0; v.load();  // vuelve al poster, no redescarga
+    v.style.filter=''; if(b) b.style.display='';
+    if(edge) edge.style.opacity=''; if(center) center.style.opacity='';
+  });
+})();
+
+/* nav: fondo translucido al scrollear */
+(() => {
+  const nav=document.querySelector('.nav');
+  const on=()=>nav.classList.toggle('scrolled',(window.scrollY||document.documentElement.scrollTop)>40);
+  addEventListener('scroll',on,{passive:true}); on();
+})();
+
+/* reveals */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* lazy */
+document.querySelectorAll('img').forEach(im=>{if(!im.closest('.hero-bg')){im.loading='lazy';}im.decoding='async';});
+
+/* clay slider */
+(()=>{const c=document.getElementById('cmp');if(!c)return;
+const top=c.querySelector('.cmp-top'),line=c.querySelector('.cmp-line');
+const set=x=>{const r=c.getBoundingClientRect();const p=Math.max(0.02,Math.min(0.98,(x-r.left)/r.width));
+top.style.clipPath=`inset(0 ${(1-p)*100}% 0 0)`;line.style.left=(p*100)+'%';};
+let d=false;
+c.addEventListener('pointerdown',e=>{d=true;set(e.clientX);try{c.setPointerCapture(e.pointerId)}catch(_){}});
+c.addEventListener('pointermove',e=>{if(d)set(e.clientX)});
+c.addEventListener('pointerup',()=>d=false);
+c.addEventListener('pointercancel',()=>d=false);
+})();
+
+/* lightbox */
+(()=>{const g=[...document.querySelectorAll('.frame img,.duo img,.strip img')];
+const lb=document.getElementById('lb'),im=document.getElementById('lbImg'),cap=document.getElementById('lbCap');
+let i=0;
+const capFor=el=>{const f=el.closest('figure');const c=f&&f.querySelector('figcaption');return c?c.textContent.trim():(el.alt||'');};
+const show=n=>{i=(n+g.length)%g.length;im.src=g[i].src;cap.textContent=capFor(g[i]);lb.classList.add('open');document.body.style.overflow='hidden';};
+const close=()=>{lb.classList.remove('open');document.body.style.overflow='';};
+g.forEach((el,n)=>el.addEventListener('click',()=>show(n)));
+document.getElementById('lbX').addEventListener('click',close);
+document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();show(i-1)});
+document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();show(i+1)});
+lb.addEventListener('click',e=>{if(e.target===lb||e.target===im)close()});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;
+if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});
+})();
+</script>
 </body>
 </html>
